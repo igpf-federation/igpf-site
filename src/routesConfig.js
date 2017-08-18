@@ -1,13 +1,20 @@
-// import Home from "./components/pages/Home";
-// import Book from "./components/pages/Book";
-// import About from "./components/pages/About";
-// import Books from "./components/pages/Books";
-
 import Generic from "./components/pages/Generic";
+import Data from "./components/pages/Data";
+import NotFound from "./components/pages/404";
+import Search from "./components/pages/Search";
+
+import {
+	sectionsList,
+	sectionsMap,
+	subsectionsList,
+	subsectionsMap,
+	allSectionsList,
+	rawdata,
+} from "src/data";
 
 // --------------------------------------------------
 
-export default [
+const routesConfig = [
 	{
 		path: "/",
 		title: "Home",
@@ -15,11 +22,53 @@ export default [
 		exact: true,
 		show: false,
 	},
+	// {
+	// 	path: "/rawdata",
+	// 	title: "Raw Data",
+	// 	component: Data(rawdata),
+	// 	show: true,
+	// },
+	// {
+	// 	path: "/shapeddata",
+	// 	title: "Shaped Data",
+	// 	component: Data(sectionsList),
+	// 	show: true,
+	// },
 	{
-		path: "/background",
-		title: "Background",
-		component: Generic,
-		exact: true,
-		show: true,
+		path: "/search/:query",
+		title: "Search",
+		component: Search,
 	},
 ];
+
+const sectionRoutes = allSectionsList.map(o => {
+	const {
+		title,
+		slug,
+		parent,
+		path,
+		subsections,
+		subsection,
+	} = o;
+
+	return {
+		title,
+		slug,
+		parent,
+		path,
+		subsections,
+		subsection,
+
+		component: Generic,
+		exact: true,
+		show: !subsection,
+	};
+});
+
+routesConfig.push(...sectionRoutes);
+
+routesConfig.push({
+	component: NotFound,
+});
+
+export default routesConfig;

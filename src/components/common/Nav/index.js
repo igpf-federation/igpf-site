@@ -14,6 +14,87 @@ import _Logo from "../Logo";
 
 // --------------------------------------------------
 
+const Wrapper = styled.nav`
+	${ mixins.bp.sm.min`${ mixins.shadow(1) }` } ${ mixins.bpEither(
+		"height",
+		vars.dim.nav.height,
+	) }
+	background-color: ${R.path([ "theme", "nav", ])};
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 2;
+	color: white;
+
+	& a {
+		color: white !important;
+	}
+`;
+
+const Inner = styled.div`
+	width: 100%;
+	height: 100%;
+	position: relative;
+`;
+
+const MobileStuff = styled.div`
+	${ mixins.bp.sm.min`display: none;`} ${mixins.contained()};
+`;
+
+const Dark = styled.div`
+	${ mixins.contained() } position: fixed;
+	background: ${mixins.tr(0.5)};
+`;
+
+const Overlay = styled.div`
+	${ mixins.contained() } ${({ open, }) =>
+	open ? mixins.shadow(1) : ""} transition: 0.3s all ease-out;
+	background-color: ${R.path([ "theme", "nav", ])};
+`;
+
+const BurgerWrapper = styled.div`
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -20px;
+`;
+
+const LogoText = styled.div`
+	font-size: 2em;
+	font-family: ${vars.font.title.family};
+`;
+
+const LogoImage = styled.img`
+	height: 80%;
+	width: auto;
+`;
+
+const Logo = props =>
+	<LogoWrapper to = "/">
+		<LogoImage src = "/img/igpf-logo.png"/>
+	</LogoWrapper>;
+
+const IndexLink = props => <Link to = "/" { ...props } />;
+
+const LogoWrapper = styled(IndexLink)` // should be IndexLink
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	${ mixins.bpEither("left", vars.dim.nav.margin )}
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+`;
+
+const Translator = styled.div`
+	position: fixed;
+	left: 0;
+	bottom: 0;
+`;
+
+// --------------------------------------------------
+
 export default class Nav extends React.Component {
 	constructor(props) {
 		super(props);
@@ -61,7 +142,7 @@ export default class Nav extends React.Component {
 							<Burger
 								{ ...this.state }
 								padding = { mixins.num(vars.dim.nav.margin.xs) }
-								color = { vars.colors.text }
+								color = { "white" }
 							/>
 						</BurgerWrapper>
 					</MobileStuff>
@@ -73,67 +154,4 @@ export default class Nav extends React.Component {
 	}
 }
 
-// --------------------------------------------------
 
-const Wrapper = styled.nav`
-	${ mixins.bp.sm.min`${ mixins.shadow(1) }` } ${ mixins.bpEither(
-		"height",
-		vars.dim.nav.height,
-	) }
-	background-color: ${R.path([ "theme", "nav", ])};
-	left: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
-	z-index: 2;
-`;
-
-const Inner = styled.div`
-	width: 100%;
-	height: 100%;
-	position: relative;
-`;
-
-const MobileStuff = styled.div`
-	${ mixins.bp.sm.min`display: none;`} ${mixins.contained()};
-`;
-
-const Dark = styled.div`
-	${ mixins.contained() } position: fixed;
-	background: ${mixins.tr(0.5)};
-`;
-
-const Overlay = styled.div`
-	${ mixins.contained() } ${({ open, }) =>
-	open ? mixins.shadow(1) : ""} transition: 0.3s all ease-out;
-	background-color: ${R.path([ "theme", "nav", ])};
-`;
-
-const BurgerWrapper = styled.div`
-	position: absolute;
-	right: 0;
-	top: 50%;
-	margin-top: -20px;
-`;
-
-const LogoText = styled.div`
-	font-size: 2em;
-	font-family: ${vars.font.title.family};
-`;
-
-const Logo = props =>
-	<LogoWrapper to = "/">
-		<LogoText>IGPF</LogoText>
-	</LogoWrapper>;
-
-const IndexLink = props => <Link to = "/" { ...props } />;
-
-const LogoWrapper = styled(IndexLink)` // should be IndexLink
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	${ mixins.bpEither("left", vars.dim.nav.margin )}
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-`;
