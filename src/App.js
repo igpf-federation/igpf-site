@@ -2,6 +2,7 @@ import { ThemeProvider, } from "styled-components";
 import {
 	BrowserRouter as Router,
 	Route,
+	Switch,
 } from "react-router-dom";
 import Helmet from "react-helmet";
 
@@ -25,7 +26,6 @@ const defaultColors = {
 
 const routes = routesConfig.map(({
 	component: Comp,
-	colors,
 
 	subsections,
 	subsection,
@@ -35,36 +35,18 @@ const routes = routesConfig.map(({
 	...rest
 }) => {
 	const render = props => (
-		<ThemeProvider theme = { { ...defaultColors, ...colors, } }>
-			<div>
-				<Helmet>
-					<meta charSet = "utf-8" />
-
-					<title>Muswell Press</title>
-					
-					<link rel = "canonical" href = "http://http://www.muswell-press.co.uk/" />
-				</Helmet>
-
-				<Nav key = "Nav" />
-
-				<Main key = "Main">
-					<Comp
-						{ ...props }
-						{ 
-							...{
-								subsections,
-								subsection,
-								slug,
-								parentSlug,
-							}
-						}
-					/>
-				</Main>
-				
-				<Footer key = "Footer" />
-			</div>
-		</ThemeProvider>
-	)
+		<Comp
+			{ ...props }
+			{ 
+				...{
+					subsections,
+					subsection,
+					slug,
+					parentSlug,
+				}
+			}
+		/>
+	);
 
 	return <Route
 		key = { rest.path }
@@ -76,8 +58,26 @@ const routes = routesConfig.map(({
 export default () =>
 	<Router>
 		<ScrollToTop>
-			<div>
-				{ routes }
-			</div>
+			<ThemeProvider theme = { defaultColors }>
+				<div>
+					<Helmet>
+						<meta charSet = "utf-8" />
+
+						<title>Muswell Press</title>
+						
+						<link rel = "canonical" href = "http://http://www.muswell-press.co.uk/" />
+					</Helmet>
+
+					<Nav key = "Nav" />
+
+					<Main key = "Main">
+						<Switch>
+							{ routes }
+						</Switch>
+					</Main>
+					
+					<Footer key = "Footer" />
+				</div>
+			</ThemeProvider>
 		</ScrollToTop>
 	</Router>;

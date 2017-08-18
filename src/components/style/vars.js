@@ -78,7 +78,7 @@ export const dimensions = {
 	nav: {
 		height: {
 			xs: "50px",
-			other: "50px",
+			other: "70px",
 		},
 		margin: {
 			xs: "10px",

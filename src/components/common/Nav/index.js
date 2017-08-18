@@ -14,67 +14,6 @@ import _Logo from "../Logo";
 
 // --------------------------------------------------
 
-export default class Nav extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			open: false,
-		};
-	}
-
-	render() {
-
-		return (
-			<Wrapper>
-				<Inner>
-					<MobileStuff>
-						<Fade visible = { this.state.open }>
-							<Dark
-								onClick = { () =>
-									this.setState({
-										open: false,
-									}) 
-								}
-							/>
-						</Fade>
-					</MobileStuff>
-
-					<Links
-						links = { routesConfig }
-						close = { () =>
-							this.setState({
-								open: false,
-							}) }
-						{ ...this.state }
-					/>
-
-					<MobileStuff>
-						<Overlay { ...this.state }/>
-						
-						<BurgerWrapper
-							onClick = { () =>
-								this.setState({
-									open: !this.state.open,
-								})
-							}
-						>
-							<Burger
-								{ ...this.state }
-								padding = { mixins.num(vars.dim.nav.margin.xs) }
-								color = { "white" }
-							/>
-						</BurgerWrapper>
-					</MobileStuff>
-					
-					<Logo />
-				</Inner>
-			</Wrapper>
-		);
-	}
-}
-
-// --------------------------------------------------
-
 const Wrapper = styled.nav`
 	${ mixins.bp.sm.min`${ mixins.shadow(1) }` } ${ mixins.bpEither(
 		"height",
@@ -82,10 +21,11 @@ const Wrapper = styled.nav`
 	) }
 	background-color: ${R.path([ "theme", "nav", ])};
 	left: 0;
-	position: absolute;
+	position: fixed;
 	right: 0;
 	top: 0;
 	z-index: 2;
+	color: white;
 
 	& a {
 		color: white !important;
@@ -146,3 +86,72 @@ const LogoWrapper = styled(IndexLink)` // should be IndexLink
 	flex-direction: row;
 	align-items: center;
 `;
+
+const Translator = styled.div`
+	position: fixed;
+	left: 0;
+	bottom: 0;
+`;
+
+// --------------------------------------------------
+
+export default class Nav extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			open: false,
+		};
+	}
+
+	render() {
+
+		return (
+			<Wrapper>
+				<Inner>
+					<MobileStuff>
+						<Fade visible = { this.state.open }>
+							<Dark
+								onClick = { () =>
+									this.setState({
+										open: false,
+									}) 
+								}
+							/>
+						</Fade>
+					</MobileStuff>
+
+					<Links
+						links = { routesConfig }
+						close = { () =>
+							this.setState({
+								open: false,
+							}) }
+						{ ...this.state }
+					/>
+
+					<MobileStuff>
+						<Overlay { ...this.state }/>
+						
+						<BurgerWrapper
+							onClick = { () =>
+								this.setState({
+									open: !this.state.open,
+								})
+							}
+						>
+							<Burger
+								{ ...this.state }
+								padding = { mixins.num(vars.dim.nav.margin.xs) }
+								color = { "white" }
+							/>
+						</BurgerWrapper>
+					</MobileStuff>
+					
+					<Logo />
+				</Inner>
+			</Wrapper>
+		);
+	}
+}
+
+

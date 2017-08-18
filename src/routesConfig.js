@@ -1,5 +1,7 @@
 import Generic from "./components/pages/Generic";
 import Data from "./components/pages/Data";
+import NotFound from "./components/pages/404";
+import Search from "./components/pages/Search";
 
 import {
 	sectionsList,
@@ -31,6 +33,11 @@ const routesConfig = [
 		component: Data(sectionsList),
 		show: true,
 	},
+	{
+		path: "/search/:query",
+		title: "Search",
+		component: Search,
+	}
 ];
 
 const sectionRoutes = R.unnest(
@@ -63,5 +70,9 @@ const sectionRoutes = R.unnest(
 );
 
 routesConfig.push(...sectionRoutes);
+
+routesConfig.push({
+	component: NotFound,
+});
 
 export default routesConfig;

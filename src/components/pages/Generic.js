@@ -24,13 +24,20 @@ import {
 
 // --------------------------------------------------
 
+const sidebarWidth = 36;
+
 const Container1 = styled(Container)`
 	display: flex;
 	flex-direction: row;
 `;
 
 const Sidebar = styled(GridCell)`
-	width: 36%;
+	width: ${sidebarWidth}%;
+`;
+
+const FakeSidebar = styled.div`
+	width: ${sidebarWidth}%;
+	display: none;
 `;
 
 const SidebarInner = styled.div`
@@ -52,7 +59,7 @@ const SidebarImage = styled.div`
 // `;
 
 const Article = styled(GridCell)`
-	flex: 1;
+	width: ${100 - sidebarWidth}%;
 `;
 
 // --------------------------------------------------
@@ -107,6 +114,7 @@ const Generic = props => {
 					</GridCell>
 				</SidebarInner>
 			</Sidebar>
+			<FakeSidebar/>
 			<Article>
 				<TextCell>
 					<h1>{ title }</h1>

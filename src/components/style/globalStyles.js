@@ -128,4 +128,20 @@ export default () => injectGlobal`
 	  opacity: 1;
 	  transition: opacity 250ms ease-in;
 	}
+
+	// overwriting google translate widget stupid styles
+
+	.goog-te-banner-frame {
+		top: auto !important;
+		bottom: 0px !important;
+	}
+
+	html {
+		height: auto !important;
+	}
+
+	body {
+		top: 0 !important;
+		position: static !important;
+	}
 `;
