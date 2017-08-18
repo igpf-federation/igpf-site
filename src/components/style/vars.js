@@ -23,6 +23,7 @@ export const colors = {
 	bg: "#EFD8B5",
 	primary: "#362c5a",
 	secondary: "#FFFDF1",
+	nav: "#2073bc",
 };
 
 export const font = {
@@ -81,7 +82,7 @@ export const dimensions = {
 		},
 		margin: {
 			xs: "10px",
-			other: "20px",
+			other: "25px",
 		},
 		logoHeight: {
 			xs: "40px",

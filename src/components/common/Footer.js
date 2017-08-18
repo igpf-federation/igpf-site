@@ -54,13 +54,13 @@ const Divider = styled.span`margin: 0 0.5em;`;
 
 const Footer = () =>
 	<Wrapper>
-		<Left>© Muswell Press 2017</Left>
+		<Left>© Islington GP Federation 2017</Left>
 
 		<Right>
 
-			<a href = "https://www.facebook.com/MuswellPress?fref=ts"><Icon type = "facebook-square"/></a>
+			<a href = "#"><Icon type = "facebook-square"/></a>
 
-			<a href = "https://twitter.com/MuswellPress"><Icon type = "twitter"/></a>
+			<a href = "#"><Icon type = "twitter"/></a>
 
 
 

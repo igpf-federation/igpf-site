@@ -1,13 +1,17 @@
-// import Home from "./components/pages/Home";
-// import Book from "./components/pages/Book";
-// import About from "./components/pages/About";
-// import Books from "./components/pages/Books";
-
 import Generic from "./components/pages/Generic";
+import Data from "./components/pages/Data";
+
+import {
+	sectionsList,
+	sectionsMap,
+	subsectionsList,
+	subsectionsMap,
+	rawdata,
+} from "src/data";
 
 // --------------------------------------------------
 
-export default [
+const routesConfig = [
 	{
 		path: "/",
 		title: "Home",
@@ -16,10 +20,48 @@ export default [
 		show: false,
 	},
 	{
-		path: "/background",
-		title: "Background",
-		component: Generic,
-		exact: true,
+		path: "/rawdata",
+		title: "Raw Data",
+		component: Data(rawdata),
+		show: true,
+	},
+	{
+		path: "/shapeddata",
+		title: "Shaped Data",
+		component: Data(sectionsList),
 		show: true,
 	},
 ];
+
+const sectionRoutes = R.unnest(
+	(sectionsList || []).map(section => [
+		{
+			path: `/${section.slug}`,
+			title: section.title,
+			component: Generic,
+			exact: true,
+			show: true,
+
+			subsections: section.subsections,
+
+			slug: section.slug,			
+		},
+		...(
+			(section.subsections || []).map(subslug => ({
+				path: `/${section.slug}/${subslug}`,
+				title: subsectionsMap[subslug],
+				component: Generic,
+				exact: true,
+				show: false,
+
+				subsection: true,
+				slug: subslug,
+				parentSlug: section.slug,
+			}))
+		),
+	])
+);
+
+routesConfig.push(...sectionRoutes);
+
+export default routesConfig;

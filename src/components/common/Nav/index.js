@@ -61,7 +61,7 @@ export default class Nav extends React.Component {
 							<Burger
 								{ ...this.state }
 								padding = { mixins.num(vars.dim.nav.margin.xs) }
-								color = { vars.colors.text }
+								color = { "white" }
 							/>
 						</BurgerWrapper>
 					</MobileStuff>
@@ -86,6 +86,10 @@ const Wrapper = styled.nav`
 	right: 0;
 	top: 0;
 	z-index: 2;
+
+	& a {
+		color: white !important;
+	}
 `;
 
 const Inner = styled.div`
@@ -121,9 +125,14 @@ const LogoText = styled.div`
 	font-family: ${vars.font.title.family};
 `;
 
+const LogoImage = styled.img`
+	height: 80%;
+	width: auto;
+`;
+
 const Logo = props =>
 	<LogoWrapper to = "/">
-		<LogoText>IGPF</LogoText>
+		<LogoImage src = "/img/igpf-logo.png"/>
 	</LogoWrapper>;
 
 const IndexLink = props => <Link to = "/" { ...props } />;

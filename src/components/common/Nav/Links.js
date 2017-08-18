@@ -11,7 +11,9 @@ export default props =>
 	<Wrapper open = { props.open }>
 		<div>
 			{
-				props.links.filter(route => route.show).map((route, i) =>
+				props.links
+				.filter(route => route.show)
+				.map((route, i) =>
 					<Button
 						key = { route.title }
 						to = { route.link || route.path }
@@ -43,7 +45,7 @@ const wrapperStyle = [
 
 	`
 		position: absolute;
-		right: ${ 0 };
+		right: ${ mixins.num(vars.dim.nav.margin.other) * 0.5 }px;
 		top: 0;
 		bottom: 0;
 		display: flex;
@@ -60,14 +62,25 @@ const buttonStyle = [
 		display: block;
 		padding: ${ vars.dim.nav.margin.xs };
 		border-bottom: 1px solid ${ mixins.tr(0.1) };
+
+		&.active {
+			font-weight: bold;
+		}
 	`,
 
 	`
 		line-height: ${ vars.dim.nav.height.other };
-		padding: 0 ${ vars.dim.nav.margin.other };
+		padding: 0 ${ mixins.num(vars.dim.nav.margin.other) * 0.5 }px;
+		display: inline-block;
+		height: ${ vars.dim.nav.height.other };
+		border-bottom: 3px solid transparent;
+		border-top: 1px solid transparent;
 
 		&:hover {
-			text-decoration: underline;
+		}
+
+		&.active {
+			border-bottom-color: white;
 		}
 	`,
 ];
@@ -77,9 +90,7 @@ const Button = styled(NavLink)`
 	color: ${R.path([ "theme", "logo1", ])};
 	font-size: 1.1em;
 
-	&.active {
-		font-weight: bold;
-	}
+	
 
 	${ mixins.xs`${ buttonStyle[0] }` }
 	${ mixins.bp.sm.min`${buttonStyle[1] }` }

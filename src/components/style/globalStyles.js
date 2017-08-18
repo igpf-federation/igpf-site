@@ -16,6 +16,31 @@ export default () => injectGlobal`
 	@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 	@font-face {
+	  font-family: 'Frutiger';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: url("/fonts/frutiger/frutiger-roman-webfont.eot");
+	  src: url("/fonts/frutiger/frutiger-roman-webfont.woff") format("woff"), url("../fonts/frutiger/frutiger-roman-webfont.ttf") format("truetype"); }
+	@font-face {
+	  font-family: 'Frutiger';
+	  font-style: normal;
+	  font-weight: 700;
+	  src: url("/fonts/frutiger/frutiger-bold-webfont.eot");
+	  src: url("/fonts/frutiger/frutiger-bold-webfont.woff") format("woff"), url("../fonts/frutiger/frutiger-bold-webfont.ttf") format("truetype"); }
+	@font-face {
+	  font-family: 'Frutiger';
+	  font-style: normal;
+	  font-weight: 200;
+	  src: url("/fonts/frutiger/frutiger-light-webfont.eot");
+	  src: url("/fonts/frutiger/frutiger-light-webfont.woff") format("woff"), url("../fonts/frutiger/frutiger-light-webfont.ttf") format("truetype"); }
+	@font-face {
+	  font-family: 'Frutiger';
+	  font-style: normal;
+	  font-weight: 800;
+	  src: url("/fonts/frutiger/frutiger-black-webfont.eot");
+	  src: url("/fonts/frutiger/frutiger-black-webfont.woff") format("woff"), url("../fonts/frutiger/frutiger-black-webfont.ttf") format("truetype"); }
+
+	@font-face {
 	  font-family: 'TradeGothic';
 	  font-style: normal;
 	  font-weight: 700;
@@ -42,7 +67,7 @@ export default () => injectGlobal`
 
 	body {
 		background: white;
-		font-family: Archivo, sans-serif;
+		font-family: Frutiger, Archivo, sans-serif;
 		${ mixins.bpEach("font-size", vars.font.size) }
 		color: ${ vars.colors.text };
 		margin: 0;

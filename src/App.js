@@ -23,7 +23,17 @@ const defaultColors = {
 	...vars.colors,
 };
 
-const routes = routesConfig.map(({ component: Comp, colors, ...rest }) => {
+const routes = routesConfig.map(({
+	component: Comp,
+	colors,
+
+	subsections,
+	subsection,
+	slug,
+	parentSlug,
+	
+	...rest
+}) => {
 	const render = props => (
 		<ThemeProvider theme = { { ...defaultColors, ...colors, } }>
 			<div>
@@ -38,7 +48,17 @@ const routes = routesConfig.map(({ component: Comp, colors, ...rest }) => {
 				<Nav key = "Nav" />
 
 				<Main key = "Main">
-					<Comp { ...props } />
+					<Comp
+						{ ...props }
+						{ 
+							...{
+								subsections,
+								subsection,
+								slug,
+								parentSlug,
+							}
+						}
+					/>
 				</Main>
 				
 				<Footer key = "Footer" />
