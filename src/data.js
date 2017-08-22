@@ -8,6 +8,11 @@ const slugify = x => _slugify(x, {
 	lower: true,
 });
 
+const makeMapUsingSlugs = list => list.reduce((acc, item) => ({
+	...acc,
+	[item.slug]: item,
+}), {})
+
 const sectionsList = (
 	rawdata.items
 	.filter(item => item.sys.contentType.sys.id === "section")
@@ -26,7 +31,7 @@ const sectionsList = (
 				: []
 			),
 			slug,
-			html: marked(item.fields.content),
+			html: marked(item.fields.content || ""),
 			path: `/${slug}`,
 		}
 	})
@@ -51,10 +56,22 @@ const subsectionsList = (
 				: {}
 			),
 			slug,
-			html: marked(item.fields.content),
+			html: marked(item.fields.content || ""),
 			parent,
 			path: `/${parent}/${slug}`,
 			subsection: true,
+			people: (
+				item.fields.people
+				? item.fields.people.map(person => ({
+					...person.fields,
+					picture: (
+						person.fields.picture
+						? person.fields.picture.fields.file
+						: {}
+					),
+				}))
+				: undefined
+			),
 		};
 	})
 );
@@ -63,11 +80,6 @@ const allSectionsList = [
 	...sectionsList,
 	...subsectionsList,
 ];
-
-const makeMapUsingSlugs = list => list.reduce((acc, item) => ({
-	...acc,
-	[item.slug]: item,
-}), {})
 
 const sectionsMap = makeMapUsingSlugs(sectionsList);
 const subsectionsMap = makeMapUsingSlugs(subsectionsList);

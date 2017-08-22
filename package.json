@@ -35,7 +35,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "static": "react-scripts build && react-snapshot",
+    "static": "node scripts/static",
+    "data": "node scripts/static/makeDataFile",
     "test": "react-scripts test --env=jsdom",
     "lint": "react-scripts format",
     "format": "react-scripts format",
