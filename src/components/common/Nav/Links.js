@@ -149,9 +149,10 @@ const enhanceSearchBar = compose(
 	withState("searchText", "setSearchText", ""),
 	withHandlers({
 		onChange: ({ setSearchText, }) => e => setSearchText(e.target.value),
-		onKeyUp: ({ history, searchText, }) => e => {
+		onKeyUp: ({ history, searchText, setSearchText, }) => e => {
 			if(e.keyCode === 13) {
 				history.push(`/search/${searchText}`);
+				setSearchText("");
 			}
 		},
 	}),

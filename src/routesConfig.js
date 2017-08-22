@@ -3,14 +3,7 @@ import Data from "./components/pages/Data";
 import NotFound from "./components/pages/404";
 import Search from "./components/pages/Search";
 
-import {
-	sectionsList,
-	sectionsMap,
-	subsectionsList,
-	subsectionsMap,
-	allSectionsList,
-	rawdata,
-} from "src/data";
+import * as data from "src/data";
 
 // --------------------------------------------------
 
@@ -23,15 +16,9 @@ const routesConfig = [
 		show: false,
 	},
 	// {
-	// 	path: "/rawdata",
-	// 	title: "Raw Data",
-	// 	component: Data(rawdata),
-	// 	show: true,
-	// },
-	// {
 	// 	path: "/shapeddata",
 	// 	title: "Shaped Data",
-	// 	component: Data(sectionsList),
+	// 	component: Data(data),
 	// 	show: true,
 	// },
 	{
@@ -41,7 +28,7 @@ const routesConfig = [
 	},
 ];
 
-const sectionRoutes = allSectionsList.map(o => {
+const sectionRoutes = data.allSectionsList.map(o => {
 	const {
 		title,
 		slug,

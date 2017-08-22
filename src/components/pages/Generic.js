@@ -62,6 +62,24 @@ const Article = styled(GridCell)`
 	width: ${100 - sidebarWidth}%;
 `;
 
+const PeopleWrapper = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+`;
+
+const PersonWrapper = styled(GridCell)`
+	width: ${100 / 3}%;
+`;
+
+const PersonPicture = styled.div`
+	padding-top: 150%;
+	background-color: #bbb;
+	background-image: url(${R.prop("src")});
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+`;
+
 // --------------------------------------------------
 
 const Generic = props => {
@@ -70,10 +88,10 @@ const Generic = props => {
 	const {
 		subsection,
 		slug,
-		parent,		
+		parent,
 	} = props;
 
-	const { title, html, image: { url: imageUrl, }, } = allSectionsMap[slug];
+	const { title, html, image: { url: imageUrl, }, people, } = allSectionsMap[slug];
 
 	// sidebar
 	const sectionSlug = subsection ? parent : slug;
@@ -122,6 +140,22 @@ const Generic = props => {
 						__html: html,
 					}}/>
 				</TextCell>
+				{
+					people
+					?	<PeopleWrapper>
+						{
+							people.map(person => (
+								<PersonWrapper>
+									<PersonPicture src = { person.picture && person.picture.url }/>
+									<h3>{ person.name }</h3>
+									<p><strong>{ person.role }</strong></p>
+									<p>{ person.email }</p>
+								</PersonWrapper>
+							))
+						}
+					</PeopleWrapper>
+					: null
+				}
 			</Article>
 		</Container1>
 	);	
