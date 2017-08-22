@@ -70,13 +70,13 @@ const Generic = props => {
 	const {
 		subsection,
 		slug,
-		parentSlug,		
+		parent,		
 	} = props;
 
-	const { content, title, html, image: { url: imageUrl, }, } = allSectionsMap[slug];
+	const { title, html, image: { url: imageUrl, }, } = allSectionsMap[slug];
 
 	// sidebar
-	const sectionSlug = subsection ? parentSlug : slug;
+	const sectionSlug = subsection ? parent : slug;
 	const subsectionSlugs = sectionsMap[sectionSlug].subsections;
 	const sectionLink = {
 		to: `/${sectionSlug}`,

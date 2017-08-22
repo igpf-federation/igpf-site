@@ -8,6 +8,7 @@ import {
 	sectionsMap,
 	subsectionsList,
 	subsectionsMap,
+	allSectionsList,
 	rawdata,
 } from "src/data";
 
@@ -21,53 +22,48 @@ const routesConfig = [
 		exact: true,
 		show: false,
 	},
-	{
-		path: "/rawdata",
-		title: "Raw Data",
-		component: Data(rawdata),
-		show: true,
-	},
-	{
-		path: "/shapeddata",
-		title: "Shaped Data",
-		component: Data(sectionsList),
-		show: true,
-	},
+	// {
+	// 	path: "/rawdata",
+	// 	title: "Raw Data",
+	// 	component: Data(rawdata),
+	// 	show: true,
+	// },
+	// {
+	// 	path: "/shapeddata",
+	// 	title: "Shaped Data",
+	// 	component: Data(sectionsList),
+	// 	show: true,
+	// },
 	{
 		path: "/search/:query",
 		title: "Search",
 		component: Search,
-	}
+	},
 ];
 
-const sectionRoutes = R.unnest(
-	(sectionsList || []).map(section => [
-		{
-			path: `/${section.slug}`,
-			title: section.title,
-			component: Generic,
-			exact: true,
-			show: true,
+const sectionRoutes = allSectionsList.map(o => {
+	const {
+		title,
+		slug,
+		parent,
+		path,
+		subsections,
+		subsection,
+	} = o;
 
-			subsections: section.subsections,
+	return {
+		title,
+		slug,
+		parent,
+		path,
+		subsections,
+		subsection,
 
-			slug: section.slug,			
-		},
-		...(
-			(section.subsections || []).map(subslug => ({
-				path: `/${section.slug}/${subslug}`,
-				title: subsectionsMap[subslug],
-				component: Generic,
-				exact: true,
-				show: false,
-
-				subsection: true,
-				slug: subslug,
-				parentSlug: section.slug,
-			}))
-		),
-	])
-);
+		component: Generic,
+		exact: true,
+		show: !subsection,
+	};
+});
 
 routesConfig.push(...sectionRoutes);
 

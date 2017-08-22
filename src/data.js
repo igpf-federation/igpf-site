@@ -11,37 +11,58 @@ const slugify = x => _slugify(x, {
 const sectionsList = (
 	rawdata.items
 	.filter(item => item.sys.contentType.sys.id === "section")
-	.map(item => ({
-		...item.fields,
-		image: (
-			item.fields.image
-			? item.fields.image.fields.file
-			: {}
-		),
-		subsections: (
-			item.fields.subsections
-			? item.fields.subsections.map(R.path([ "fields", "title", ])).map(slugify)
-			: []
-		),
-		slug: slugify(item.fields.title),
-		html: marked(item.fields.content),
-	}))
+	.map(item => {
+		const slug = slugify(item.fields.title);
+		return {
+			...item.fields,
+			image: (
+				item.fields.image
+				? item.fields.image.fields.file
+				: {}
+			),
+			subsections: (
+				item.fields.subsections
+				? item.fields.subsections.map(R.path([ "fields", "title", ])).map(slugify)
+				: []
+			),
+			slug,
+			html: marked(item.fields.content),
+			path: `/${slug}`,
+		}
+	})
 );
 
 const subsectionsList = (
 	rawdata.items
 	.filter(item => item.sys.contentType.sys.id === "subsection")
-	.map(item => ({
-		...item.fields,
-		image: (
-			item.fields.image
-			? item.fields.image.fields.file
-			: {}
-		),
-		slug: slugify(item.fields.title),
-		html: marked(item.fields.content),
-	}))
+	.map(item => {
+		const slug = slugify(item.fields.title);
+		const parent = (
+			sectionsList
+			.find(section => section.subsections.includes(slug))
+			.slug
+		);
+		
+		return {
+			...item.fields,
+			image: (
+				item.fields.image
+				? item.fields.image.fields.file
+				: {}
+			),
+			slug,
+			html: marked(item.fields.content),
+			parent,
+			path: `/${parent}/${slug}`,
+			subsection: true,
+		};
+	})
 );
+
+const allSectionsList = [
+	...sectionsList,
+	...subsectionsList,
+];
 
 const makeMapUsingSlugs = list => list.reduce((acc, item) => ({
 	...acc,
@@ -60,6 +81,7 @@ export {
 	sectionsMap,
 	subsectionsList,
 	subsectionsMap,
+	allSectionsList,
 	allSectionsMap,
 	rawdata,
 };

@@ -26,31 +26,22 @@ const defaultColors = {
 
 const routes = routesConfig.map(({
 	component: Comp,
+	path,
+	exact,
 
-	subsections,
-	subsection,
-	slug,
-	parentSlug,
-	
 	...rest
-}) => {
+}, i) => {
 	const render = props => (
 		<Comp
 			{ ...props }
-			{ 
-				...{
-					subsections,
-					subsection,
-					slug,
-					parentSlug,
-				}
-			}
+			{ ...rest }
 		/>
 	);
 
 	return <Route
-		key = { rest.path }
-		{ ...rest }
+		key = { path + i }
+		path = { path }
+		exact = { exact }
 		render = { render }
 	/>
 });
