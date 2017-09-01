@@ -54,9 +54,9 @@ export default () =>
 					<Helmet>
 						<meta charSet = "utf-8" />
 
-						<title>Muswell Press</title>
+						<title>Islington GP Federation</title>
 						
-						<link rel = "canonical" href = "http://http://www.muswell-press.co.uk/" />
+						<link rel = "canonical" href = "http://www.islingtongpfederation.org/" />
 					</Helmet>
 
 					<Nav key = "Nav" />

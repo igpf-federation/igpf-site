@@ -121,6 +121,7 @@ const Generic = props => {
 							<Link to = { sectionLink.to }>
 								<h3>{ sectionLink.title }</h3>
 							</Link>
+
 							{
 								subsectionLinks.map(subsectionLink => (
 									<Link to = { subsectionLink.to } key = { subsectionLink.slug }>
@@ -132,23 +133,34 @@ const Generic = props => {
 					</GridCell>
 				</SidebarInner>
 			</Sidebar>
+
 			<FakeSidebar/>
+
 			<Article>
 				<TextCell>
 					<h1>{ title }</h1>
+
 					<div dangerouslySetInnerHTML = {{
 						__html: html,
 					}}/>
 				</TextCell>
+
 				{
 					people
-					?	<PeopleWrapper>
+					? <PeopleWrapper>
 						{
-							people.map(person => (
+							people.map( person => (
 								<PersonWrapper>
-									<PersonPicture src = { person.picture && person.picture.url }/>
+									<PersonPicture src = { 
+										person.picture.url
+									 	? person.picture.url
+									 	: "/img/profile-pic.png"
+									 }/>
+									
 									<h3>{ person.name }</h3>
+
 									<p><strong>{ person.role }</strong></p>
+
 									<p>{ person.email }</p>
 								</PersonWrapper>
 							))

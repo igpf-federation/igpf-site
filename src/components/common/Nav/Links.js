@@ -130,6 +130,8 @@ const _SearchBar = styled.input`
 	margin-left: 0.5em;
 	background-color: transparent;
 	border: 0;
+	width: 3em;
+	transition-duration: 0.3s;
 
 	${ mixins.bp.sm.min`
 		line-height: 2em;
@@ -137,6 +139,7 @@ const _SearchBar = styled.input`
 
 	&:focus {
 		outline: 0;
+		width: 8em;
 	}
 
 	&::placeholder {
@@ -202,8 +205,10 @@ export default props =>
 				Translate
 				<div id = "google_translate_element"></div>
 			</TranslateButton>
+
 			<SearchButton>
 				<SearchIcon type = "search"/>
+
 				<SearchBar type = "text"/>
 			</SearchButton>
 		</ToolsWrapper>
