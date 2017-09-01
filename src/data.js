@@ -62,14 +62,16 @@ const subsectionsList = (
 			subsection: true,
 			people: (
 				item.fields.people
-				? item.fields.people.map(person => ({
-					...person.fields,
-					picture: (
-						person.fields.picture
-						? person.fields.picture.fields.file
-						: {}
-					),
-				}))
+				? item.fields.people.map( person => (
+					{
+						...person.fields,
+						picture: (
+							person.fields && person.fields.picture
+							? person.fields.picture.fields.file
+							: {}
+						),
+					}
+				))
 				: undefined
 			),
 		};
