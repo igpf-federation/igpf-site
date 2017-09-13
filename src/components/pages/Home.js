@@ -54,25 +54,7 @@ const SidebarImage = styled.div`
 `;
 
 const Article = styled(GridCell)`
-	width: ${100 - sidebarWidth}%;
-`;
-
-const PeopleWrapper = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-`;
-
-const PersonWrapper = styled(GridCell)`
-	width: ${100 / 3}%;
-`;
-
-const PersonPicture = styled.div`
-	padding-top: 150%;
-	background-color: #bbb;
-	background-image: url(${R.prop("src")});
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
+	width: 100%;
 `;
 
 // --------------------------------------------------
@@ -88,7 +70,41 @@ const Home = props => {
 		<Container1>
 			<Article>
 				<TextCell>
-					<h1>Home</h1>
+					<h2>The Islington GP Federation</h2>
+
+					<h1>Improving healthcare across North London</h1>
+				</TextCell>
+
+				<TextCell>
+					<div>A nice visual introduction would go here...</div>
+				</TextCell>
+
+				<TextCell>
+					<Link to = "/who-we-are">
+						<h3>Who We Are</h3>
+					</Link>
+
+					<div>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum.</div>
+
+					<br/>
+
+					<Link to = "/who-we-are">
+						<div>Find out more</div>
+					</Link>
+				</TextCell>
+
+				<TextCell>
+					<Link to = "/what-we-do">
+						<h3>What We Do</h3>
+					</Link>
+
+					<div>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum.</div>
+
+					<br/>
+
+					<Link to = "/what-we-do">
+						<div>Find out more</div>
+					</Link>
 				</TextCell>
 			</Article>
 		</Container1>
