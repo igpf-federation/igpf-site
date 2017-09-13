@@ -10,7 +10,6 @@ import routesConfig from "../../../routesConfig";
 import Links from "./Links";
 import Burger from "./Burger";
 import Fade from "../Fade";
-import _Logo from "../Logo";
 
 // --------------------------------------------------
 
