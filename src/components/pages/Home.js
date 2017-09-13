@@ -77,92 +77,19 @@ const PersonPicture = styled.div`
 
 // --------------------------------------------------
 
-const Generic = props => {
-	console.log("generic props", props);
-
+const Home = props => {
 	const {
 		subsection,
 		slug,
 		parent,
 	} = props;
 
-	const { title, html, image: { url: imageUrl, }, people, } = allSectionsMap[slug];
-
-	// sidebar
-	const sectionSlug = subsection ? parent : slug;
-	const subsectionSlugs = sectionsMap[sectionSlug].subsections;
-	const sectionLink = {
-		to: `/${sectionSlug}`,
-		title: sectionsMap[sectionSlug].title,
-		slug: sectionSlug,
-	};
-	const subsectionLinks = subsectionSlugs.map(subsectionSlug => ({
-		to: `/${sectionSlug}/${subsectionSlug}`,
-		title: subsectionsMap[subsectionSlug].title,
-		slug: subsectionSlug,
-	}))
-
 	return (
 		<Container1>
-			<Sidebar>
-				<SidebarInner>
-					{
-						imageUrl || true
-						? <SidebarImage src = { imageUrl }/>
-						: null
-					}
-					<GridCell>
-						<TextCell>
-							<Link to = { sectionLink.to }>
-								<h3>{ sectionLink.title }</h3>
-							</Link>
-
-							{
-								subsectionLinks.map(subsectionLink => (
-									<Link to = { subsectionLink.to } key = { subsectionLink.slug }>
-										<p>{ subsectionLink.title }</p>
-									</Link>
-								))
-							}
-						</TextCell>
-					</GridCell>
-				</SidebarInner>
-			</Sidebar>
-
-			<FakeSidebar/>
-
 			<Article>
 				<TextCell>
-					<h1>{ title }</h1>
-
-					<div dangerouslySetInnerHTML = {{
-						__html: html,
-					}}/>
+					<h1>Home</h1>
 				</TextCell>
-
-				{
-					people
-					? <PeopleWrapper>
-						{
-							people.map( person => (
-								<PersonWrapper>
-									<PersonPicture src = { 
-										person.picture.url
-									 	? person.picture.url
-									 	: "/img/profile-pic.png"
-									 }/>
-									
-									<h3>{ person.name }</h3>
-
-									<p><strong>{ person.role }</strong></p>
-
-									<p>{ person.email }</p>
-								</PersonWrapper>
-							))
-						}
-					</PeopleWrapper>
-					: null
-				}
 			</Article>
 		</Container1>
 	);	
