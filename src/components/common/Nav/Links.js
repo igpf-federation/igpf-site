@@ -186,7 +186,6 @@ export default props =>
 		<div>
 			{
 				props.links
-				.filter(route => route.show)
 				.map((route, i) =>
 					<Button
 						key = { route.title }

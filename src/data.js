@@ -90,7 +90,18 @@ const allSectionsMap = {
 	...subsectionsMap,
 };
 
+const nav = (
+	rawdata.items
+	.filter(item => item.sys.contentType.sys.id === "nav")
+	[0].fields.links
+	.map(link => ({
+		title: link.fields.title,
+		path: "/" + slugify(link.fields.title),
+	}))
+);
+
 export {
+	nav,
 	sectionsList,
 	sectionsMap,
 	subsectionsList,

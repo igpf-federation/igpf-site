@@ -6,4 +6,5 @@ export default data => () => <div style = {{
 	fontSize: "11px",
 }}>
 	{ printObj(data) }
+	{ console.log(data) }
 </div>

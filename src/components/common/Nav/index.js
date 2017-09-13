@@ -6,6 +6,7 @@ import * as mixins from "../../style/mixins";
 import * as vars from "../../style/vars";
 import { objMap, } from "../../../lib/util";
 import routesConfig from "../../../routesConfig";
+import { nav, } from "../../../data";
 
 import Links from "./Links";
 import Burger from "./Burger";
@@ -121,7 +122,7 @@ export default class Nav extends React.Component {
 					</MobileStuff>
 
 					<Links
-						links = { routesConfig }
+						links = { nav }
 						close = { () =>
 							this.setState({
 								open: false,

@@ -15,12 +15,12 @@ const routesConfig = [
 		exact: true,
 		show: false,
 	},
-	// {
-	// 	path: "/shapeddata",
-	// 	title: "Shaped Data",
-	// 	component: Data(data),
-	// 	show: true,
-	// },
+	{
+		path: "/shapeddata",
+		title: "Shaped Data",
+		component: Data(data),
+		show: false,
+	},
 	{
 		path: "/search/:query",
 		title: "Search",
