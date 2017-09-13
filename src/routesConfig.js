@@ -1,4 +1,5 @@
 import Generic from "./components/pages/Generic";
+import Home from "./components/pages/Home";
 import Data from "./components/pages/Data";
 import NotFound from "./components/pages/404";
 import Search from "./components/pages/Search";
@@ -11,7 +12,7 @@ const routesConfig = [
 	{
 		path: "/",
 		title: "Home",
-		component: () => null,
+		component: Home,
 		exact: true,
 		show: false,
 	},
