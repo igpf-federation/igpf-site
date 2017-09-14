@@ -19,6 +19,10 @@ import {
 	sectionsMap,
 	subsectionsList,
 	subsectionsMap,
+	servicesList,
+	servicesMap,
+	jobsList,
+	jobsMap,
 	allSectionsMap,
 } from "src/data";
 
@@ -87,6 +91,8 @@ const Generic = props => {
 
 	const {
 		subsection,
+		service,
+		job,
 		slug,
 		parent,
 	} = props;
@@ -94,17 +100,34 @@ const Generic = props => {
 	const { title, html, image: { url: imageUrl, }, people, } = allSectionsMap[slug];
 
 	// sidebar
-	const sectionSlug = subsection ? parent : slug;
-	const subsectionSlugs = sectionsMap[sectionSlug].subsections;
+	const sectionSlug = subsection || service || job ? parent : slug;
+
+	const subsectionSlugs = sectionsMap[sectionSlug] ? sectionsMap[sectionSlug].subsections : [];
+	const serviceSlugs = sectionsMap[sectionSlug] ? sectionsMap[sectionSlug].services : [];
+	const jobSlugs = sectionsMap[sectionSlug] ? sectionsMap[sectionSlug].jobs : [];
+
 	const sectionLink = {
 		to: `/${sectionSlug}`,
 		title: sectionsMap[sectionSlug].title,
 		slug: sectionSlug,
 	};
+
 	const subsectionLinks = subsectionSlugs.map(subsectionSlug => ({
 		to: `/${sectionSlug}/${subsectionSlug}`,
 		title: subsectionsMap[subsectionSlug].title,
 		slug: subsectionSlug,
+	}))
+
+	const serviceLinks = serviceSlugs.map(serviceSlug => ({
+		to: `/services/${serviceSlug}`,
+		title: servicesMap[serviceSlug].title,
+		slug: serviceSlug,
+	}))
+
+	const jobLinks = jobSlugs.map(jobSlug => ({
+		to: `/jobs/${jobSlug}`,
+		title: jobsMap[jobSlug].title,
+		slug: jobSlug,
 	}))
 
 	return (
@@ -116,6 +139,7 @@ const Generic = props => {
 						? <SidebarImage src = { imageUrl }/>
 						: null
 					}
+
 					<GridCell>
 						<TextCell>
 							<Link to = { sectionLink.to }>
@@ -128,6 +152,42 @@ const Generic = props => {
 										<p>{ subsectionLink.title }</p>
 									</Link>
 								))
+							}
+
+							{
+								(serviceLinks.length > 0)
+								? (
+									<div>
+										<h4>Services</h4>
+
+										{
+											serviceLinks.map(serviceLink => (
+												<Link to = { serviceLink.to } key = { serviceLink.slug }>
+													<p>{ serviceLink.title }</p>
+												</Link>
+											))
+										}
+									</div>
+								)
+								: null
+							}
+
+							{ 
+								(jobLinks.length > 0)
+								? (
+									<div>
+										<h4>Jobs</h4>
+
+										{
+											jobLinks.map(jobLink => (
+												<Link to = { jobLink.to } key = { jobLink.slug }>
+													<p>{ jobLink.title }</p>
+												</Link>
+											))
+										}
+									</div>
+								)
+								: null
 							}
 						</TextCell>
 					</GridCell>
