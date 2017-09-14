@@ -197,11 +197,12 @@ export default props =>
 					</Button>,
 				)
 			}
-			
 		</div>
+
 		<ToolsWrapper>
 			<TranslateButton>
 				Translate
+				
 				<div id = "google_translate_element"></div>
 			</TranslateButton>
 

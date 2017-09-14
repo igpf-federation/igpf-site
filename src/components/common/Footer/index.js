@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import * as mixins from "../style/mixins";
-import * as vars from "../style/vars";
+import * as mixins from "../../style/mixins";
+import * as vars from "../../style/vars";
 
-import { Icon, } from "./misc";
+import { footer, } from "../../../data";
+
+import Links from "./Links";
+
+import { Icon, } from "./../misc";
 
 // --------------------------------------------------
 
@@ -54,16 +58,18 @@ const Divider = styled.span`margin: 0 0.5em;`;
 
 const Footer = () =>
 	<Wrapper>
-		<Left>© Islington GP Federation 2017</Left>
+		<Left>
+			© Islington GP Federation 2017
+
+			<Links
+				links = { footer }
+			/>
+		</Left>
 
 		<Right>
-
 			<a href = "#"><Icon type = "facebook-square"/></a>
 
 			<a href = "#"><Icon type = "twitter"/></a>
-
-
-
 		</Right>
 	</Wrapper>;
 

@@ -37,6 +37,10 @@ const sectionRoutes = data.allSectionsList.map(o => {
 		path,
 		subsections,
 		subsection,
+		services,
+		service,
+		jobs,
+		job,
 	} = o;
 
 	return {
@@ -46,6 +50,10 @@ const sectionRoutes = data.allSectionsList.map(o => {
 		path,
 		subsections,
 		subsection,
+		services,
+		service,
+		jobs,
+		job,
 
 		component: Generic,
 		exact: true,
