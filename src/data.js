@@ -4,9 +4,13 @@ import marked from "marked";
 import rawdata from "./rawdata";
 import { objMap, } from "./lib/util";
 
-const slugify = x => _slugify(x, {
-	lower: true,
-});
+const slugify = x => (
+	x
+	? _slugify(x, {
+		lower: true,
+	})
+	: ""
+);
 
 const makeMapUsingSlugs = list => list.reduce((acc, item) => ({
 	...acc,
