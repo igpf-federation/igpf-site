@@ -24,7 +24,21 @@ import {
 	jobsList,
 	jobsMap,
 	allSectionsMap,
+	allSectionsList,
 } from "src/data";
+
+console.log({
+	sectionsList,
+	sectionsMap,
+	subsectionsList,
+	subsectionsMap,
+	servicesList,
+	servicesMap,
+	jobsList,
+	jobsMap,
+	allSectionsMap,
+	allSectionsList,
+})
 
 // --------------------------------------------------
 
@@ -112,7 +126,7 @@ const Generic = props => {
 		slug: sectionSlug,
 	};
 
-	const subsectionLinks = subsectionSlugs.map(subsectionSlug => ({
+	const subsectionLinks = subsectionSlugs.map(subsectionSlug => (console.log("sslug", subsectionSlug), {
 		to: `/${sectionSlug}/${subsectionSlug}`,
 		title: subsectionsMap[subsectionSlug].title,
 		slug: subsectionSlug,

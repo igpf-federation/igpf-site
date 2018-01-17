@@ -52,128 +52,65 @@ const sectionsList = (
 	})
 );
 
-const subsectionsList = (
-	rawdata.items
-	.filter(item => item.sys.contentType.sys.id === "subsection")
-	.map(item => {
-		const slug = slugify(item.fields.title);
-		const parent = (
-			sectionsList
-			.find(section => section.subsections.includes(slug))
-			.slug
+const lists = (
+	R.map(contentType => {
+		return (
+			rawdata.items
+			.filter(item => item.sys.contentType.sys.id === contentType)
+			.map(item => {
+				const slug = slugify(item.fields.title);
+				const parent = (
+					sectionsList.find(section => section[contentType + "s"].includes(slug))
+					|| {}
+				).slug;
+				
+				return {
+					...item.fields,
+					image: (
+						item.fields.image
+						? item.fields.image.fields.file
+						: {}
+					),
+					slug,
+					html: marked(item.fields.content || ""),
+					parent,
+					path: `/${contentType === "subsection" ? parent : contentType + "s"}/${slug}`,
+					[contentType]: true,
+					people: (
+						item.fields.people
+						? item.fields.people.map( person => (
+							{
+								...person.fields,
+								picture: (
+									person.fields && person.fields.picture
+									? person.fields.picture.fields.file
+									: {}
+								),
+							}
+						))
+						: undefined
+					),
+				};
+			})
 		);
-		
-		return {
-			...item.fields,
-			image: (
-				item.fields.image
-				? item.fields.image.fields.file
-				: {}
-			),
-			slug,
-			html: marked(item.fields.content || ""),
-			parent,
-			path: `/${parent}/${slug}`,
-			subsection: true,
-			people: (
-				item.fields.people
-				? item.fields.people.map( person => (
-					{
-						...person.fields,
-						picture: (
-							person.fields && person.fields.picture
-							? person.fields.picture.fields.file
-							: {}
-						),
-					}
-				))
-				: undefined
-			),
-		};
+	})({
+		subsection: "subsection",
+		service: "service",
+		job: "job",
 	})
 );
 
-const servicesList = (
-	rawdata.items
-	.filter(item => item.sys.contentType.sys.id === "service")
-	.map(item => {
-		const slug = slugify(item.fields.title);
-		const parent = (
-			sectionsList
-			.find(section => section.services.includes(slug))
-			.slug
-		);
-		
-		return {
-			...item.fields,
-			image: (
-				item.fields.image
-				? item.fields.image.fields.file
-				: {}
-			),
-			slug,
-			html: marked(item.fields.content || ""),
-			parent,
-			path: `/services/${slug}`,
-			service: true,
-			people: (
-				item.fields.people
-				? item.fields.people.map( person => (
-					{
-						...person.fields,
-						picture: (
-							person.fields && person.fields.picture
-							? person.fields.picture.fields.file
-							: {}
-						),
-					}
-				))
-				: undefined
-			),
-		};
-	})
-);
+console.log("lists", lists);
 
-const jobsList = (
-	rawdata.items
-	.filter(item => item.sys.contentType.sys.id === "job")
-	.map(item => {
-		const slug = slugify(item.fields.title);
-		const parent = (
-			sectionsList
-			.find(section => section.jobs.includes(slug))
-			.slug
-		);
-		
-		return {
-			...item.fields,
-			image: (
-				item.fields.image
-				? item.fields.image.fields.file
-				: {}
-			),
-			slug,
-			html: marked(item.fields.content || ""),
-			parent,
-			path: `/jobs/${slug}`,
-			job: true,
-			people: (
-				item.fields.people
-				? item.fields.people.map( person => (
-					{
-						...person.fields,
-						picture: (
-							person.fields && person.fields.picture
-							? person.fields.picture.fields.file
-							: {}
-						),
-					}
-				))
-				: undefined
-			),
-		};
-	})
-);
+const sectionsMap = makeMapUsingSlugs(sectionsList);
+const maps = R.map(makeMapUsingSlugs)(lists);
+
+const subsectionsList = lists.subsection;
+const subsectionsMap = maps.subsection;
+const servicesList = lists.service;
+const servicesMap = maps.service;
+const jobsList = lists.job;
+const jobsMap = maps.job;
 
 const allSectionsList = [
 	...sectionsList,
@@ -182,10 +119,6 @@ const allSectionsList = [
 	...jobsList,
 ];
 
-const sectionsMap = makeMapUsingSlugs(sectionsList);
-const subsectionsMap = makeMapUsingSlugs(subsectionsList);
-const servicesMap = makeMapUsingSlugs(servicesList);
-const jobsMap = makeMapUsingSlugs(jobsList);
 const allSectionsMap = {
 	...sectionsMap,
 	...subsectionsMap,
@@ -193,15 +126,20 @@ const allSectionsMap = {
 	...jobsMap,
 };
 
+const shapeLink = link => {
+	const title = R.path([ "fields", "title", ])(link);
+	return {
+		title,
+		path: "/" + slugify(title),
+	}
+};
+
 const nav = (
 	rawdata.items
 	.filter(item => item.sys.contentType.sys.id === "nav")
 	[1]//.filter(item => item.type === "nav")
 	.fields.links
-	.map(link => ({
-		title: link.fields.title,
-		path: "/" + slugify(link.fields.title),
-	}))
+	.map(shapeLink)
 );
 
 const footer = (
@@ -209,10 +147,7 @@ const footer = (
 	.filter(item => item.sys.contentType.sys.id === "nav")
 	[0]//.filter(item => item.type === "footer")
 	.fields.links
-	.map(link => ({
-		title: link.fields.title,
-		path: "/" + slugify(link.fields.title),
-	}))
+	.map(shapeLink)
 );
 
 export {
