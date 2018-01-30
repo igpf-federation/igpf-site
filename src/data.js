@@ -10,7 +10,7 @@ const slugify = x => (
 		lower: true,
 	})
 	: ""
-);
+).replace(":", "-");
 
 const makeMapUsingSlugs = list => list.reduce((acc, item) => ({
 	...acc,
