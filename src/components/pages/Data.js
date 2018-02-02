@@ -1,10 +1,13 @@
 import { printObj, } from "src/lib/util";
 
-export default data => () => <div style = {{
-	whiteSpace: "pre-wrap",
-	wordWrap: "break-word",
-	fontSize: "11px",
-}}>
-	{ printObj(data) }
-	{ console.log(data) }
-</div>
+export default data => () =>
+	<div
+		style = { {
+			whiteSpace: "pre-wrap",
+			wordWrap: "break-word",
+			fontSize: "11px",
+		} }
+	>
+		{printObj(data)}
+		{console.log(data)}
+	</div>;

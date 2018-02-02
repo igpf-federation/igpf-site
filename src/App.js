@@ -1,9 +1,5 @@
 import { ThemeProvider, } from "styled-components";
-import {
-	BrowserRouter as Router,
-	Route,
-	Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Helmet from "react-helmet";
 
 import routesConfig from "./routesConfig";
@@ -24,26 +20,11 @@ const defaultColors = {
 	...vars.colors,
 };
 
-const routes = routesConfig.map(({
-	component: Comp,
-	path,
-	exact,
+const routes = routesConfig.map(({ component: Comp, path, exact,
+	...rest }, i) => {
+	const render = props => <Comp { ...props } { ...rest } />;
 
-	...rest
-}, i) => {
-	const render = props => (
-		<Comp
-			{ ...props }
-			{ ...rest }
-		/>
-	);
-
-	return <Route
-		key = { path + i }
-		path = { path }
-		exact = { exact }
-		render = { render }
-	/>
+	return <Route key = { path + i } path = { path } exact = { exact } render = { render } />;
 });
 
 export default () =>
@@ -55,18 +36,21 @@ export default () =>
 						<meta charSet = "utf-8" />
 
 						<title>Islington GP Federation</title>
-						
-						<link rel = "canonical" href = "http://www.islingtongpfederation.org/" />
+
+						<link
+							rel = "canonical"
+							href = "http://www.islingtongpfederation.org/"
+						/>
 					</Helmet>
 
 					<Nav key = "Nav" />
 
 					<Main key = "Main">
 						<Switch>
-							{ routes }
+							{routes}
 						</Switch>
 					</Main>
-					
+
 					<Footer key = "Footer" />
 				</div>
 			</ThemeProvider>

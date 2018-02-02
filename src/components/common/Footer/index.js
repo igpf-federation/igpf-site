@@ -17,20 +17,19 @@ const Wrapper = styled.footer`
 	bottom: 0;
 	left: 0;
 	right: 0;
-	${ mixins.bpEither("height", vars.dim.footer.height) } overflow: hidden;
+	${mixins.bpEither("height", vars.dim.footer.height)} overflow: hidden;
 
-	${ ({ theme: { footer, }, }) => `
+	${({ theme: { footer, }, }) => `
 		background-color: ${footer};
-		${ footer && footer !== vars.colors.footer
-			? ""
-			: `border-top: 1px solid ${ mixins.tr(0.2) };`
-		}		
+		${footer && footer !== vars.colors.footer
+		? ""
+		: `border-top: 1px solid ${mixins.tr(0.2)};`}		
 	`};
 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	${ mixins.bpEither("padding", vars.dim.nav.margin) };
+	${mixins.bpEither("padding", vars.dim.nav.margin)};
 `;
 
 const Left = styled.div`
@@ -60,16 +59,17 @@ const Footer = () =>
 	<Wrapper>
 		<Left>
 			© Islington GP Federation 2017
-
-			<Links
-				links = { footer }
-			/>
+			<Links links = { footer } />
 		</Left>
 
 		<Right>
-			<a href = "#"><Icon type = "facebook-square"/></a>
+			<a href = "#">
+				<Icon type = "facebook-square" />
+			</a>
 
-			<a href = "#"><Icon type = "twitter"/></a>
+			<a href = "#">
+				<Icon type = "twitter" />
+			</a>
 		</Right>
 	</Wrapper>;
 

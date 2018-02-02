@@ -38,7 +38,7 @@ console.log({
 	jobsMap,
 	allSectionsMap,
 	allSectionsList,
-})
+});
 
 // --------------------------------------------------
 
@@ -58,9 +58,7 @@ const FakeSidebar = styled.div`
 	display: none;
 `;
 
-const SidebarInner = styled.div`
-	background-color: #eee;
-`;
+const SidebarInner = styled.div`background-color: #eee;`;
 
 const SidebarImage = styled.div`
 	padding-top: 75%;
@@ -103,22 +101,24 @@ const PersonPicture = styled.div`
 const Generic = props => {
 	console.log("generic props", props);
 
-	const {
-		subsection,
-		service,
-		job,
-		slug,
-		parent,
-	} = props;
+	const { subsection, service, job, slug, parent, } = props;
 
-	const { title, html, image: { url: imageUrl, }, people, } = allSectionsMap[slug];
+	const { title, html, image: { url: imageUrl, }, people, } = allSectionsMap[
+		slug
+	];
 
 	// sidebar
 	const sectionSlug = subsection || service || job ? parent : slug;
 
-	const subsectionSlugs = sectionsMap[sectionSlug] ? sectionsMap[sectionSlug].subsections : [];
-	const serviceSlugs = sectionsMap[sectionSlug] ? sectionsMap[sectionSlug].services : [];
-	const jobSlugs = sectionsMap[sectionSlug] ? sectionsMap[sectionSlug].jobs : [];
+	const subsectionSlugs = sectionsMap[sectionSlug]
+		? sectionsMap[sectionSlug].subsections
+		: [];
+	const serviceSlugs = sectionsMap[sectionSlug]
+		? sectionsMap[sectionSlug].services
+		: [];
+	const jobSlugs = sectionsMap[sectionSlug]
+		? sectionsMap[sectionSlug].jobs
+		: [];
 
 	const sectionLink = {
 		to: `/${sectionSlug}`,
@@ -126,125 +126,139 @@ const Generic = props => {
 		slug: sectionSlug,
 	};
 
-	const subsectionLinks = subsectionSlugs.map(subsectionSlug => (console.log("sslug", subsectionSlug), {
-		to: `/${sectionSlug}/${subsectionSlug}`,
-		title: subsectionsMap[subsectionSlug].title,
-		slug: subsectionSlug,
-	}))
+	const subsectionLinks = subsectionSlugs.map(
+		subsectionSlug => (
+			console.log("sslug", subsectionSlug),
+			{
+				to: `/${sectionSlug}/${subsectionSlug}`,
+				title: subsectionsMap[subsectionSlug].title,
+				slug: subsectionSlug,
+			}
+		),
+	);
 
 	const serviceLinks = serviceSlugs.map(serviceSlug => ({
 		to: `/services/${serviceSlug}`,
 		title: servicesMap[serviceSlug].title,
 		slug: serviceSlug,
-	}))
+	}));
 
 	const jobLinks = jobSlugs.map(jobSlug => ({
 		to: `/jobs/${jobSlug}`,
 		title: jobsMap[jobSlug].title,
 		slug: jobSlug,
-	}))
+	}));
 
 	return (
 		<Container1>
 			<Sidebar>
 				<SidebarInner>
-					{
-						imageUrl || true
-						? <SidebarImage src = { imageUrl }/>
-						: null
-					}
+					{imageUrl || true ? <SidebarImage src = { imageUrl } /> : null}
 
 					<GridCell>
 						<TextCell>
 							<Link to = { sectionLink.to }>
-								<h3>{ sectionLink.title }</h3>
+								<h3>
+									{sectionLink.title}
+								</h3>
 							</Link>
 
-							{
-								subsectionLinks.map(subsectionLink => (
-									<Link to = { subsectionLink.to } key = { subsectionLink.slug }>
-										<p>{ subsectionLink.title }</p>
-									</Link>
-								))
-							}
+							{subsectionLinks.map(subsectionLink =>
+								<Link
+									to = { subsectionLink.to }
+									key = { subsectionLink.slug }
+								>
+									<p>
+										{subsectionLink.title}
+									</p>
+								</Link>,
+							)}
 
-							{
-								(serviceLinks.length > 0)
-								? (
-									<div>
-										<h4>Services</h4>
+							{serviceLinks.length > 0
+								? <div>
+									<h4>Services</h4>
 
-										{
-											serviceLinks.map(serviceLink => (
-												<Link to = { serviceLink.to } key = { serviceLink.slug }>
-													<p>{ serviceLink.title }</p>
-												</Link>
-											))
-										}
-									</div>
-								)
-								: null
-							}
+									{serviceLinks.map(serviceLink =>
+										<Link
+											to = { serviceLink.to }
+											key = { serviceLink.slug }
+										>
+											<p>
+												{serviceLink.title}
+											</p>
+										</Link>,
+									)}
+								</div>
+								: null}
 
-							{ 
-								(jobLinks.length > 0)
-								? (
-									<div>
-										<h4>Jobs</h4>
+							{jobLinks.length > 0
+								? <div>
+									<h4>Jobs</h4>
 
-										{
-											jobLinks.map(jobLink => (
-												<Link to = { jobLink.to } key = { jobLink.slug }>
-													<p>{ jobLink.title }</p>
-												</Link>
-											))
-										}
-									</div>
-								)
-								: null
-							}
+									{jobLinks.map(jobLink =>
+										<Link
+											to = { jobLink.to }
+											key = { jobLink.slug }
+										>
+											<p>
+												{jobLink.title}
+											</p>
+										</Link>,
+									)}
+								</div>
+								: null}
 						</TextCell>
 					</GridCell>
 				</SidebarInner>
 			</Sidebar>
 
-			<FakeSidebar/>
+			<FakeSidebar />
 
 			<Article>
 				<TextCell>
-					<h1>{ title }</h1>
+					<h1>
+						{title}
+					</h1>
 
-					<div dangerouslySetInnerHTML = {{
-						__html: html,
-					}}/>
+					<div
+						dangerouslySetInnerHTML = { {
+							__html: html,
+						} }
+					/>
 				</TextCell>
 
-				{
-					people
+				{people
 					? <PeopleWrapper>
-						{
-							people.map( person => (
-								<PersonWrapper>
-									<PersonPicture src = { 
+						{people.map(person =>
+							<PersonWrapper>
+								<PersonPicture
+									src = {
 										person.picture.url
-									 	? person.picture.url
-									 	: "/img/profile-pic.png"
-									 }/>
-									
-									<h3>{ person.name }</h3>
+											? person.picture.url
+											: "/img/profile-pic.png"
+									}
+								/>
 
-									<p><strong>{ person.role }</strong></p>
+								<h3>
+									{person.name}
+								</h3>
 
-									<p>{ person.email }</p>
-								</PersonWrapper>
-							))
-						}
+								<p>
+									<strong>
+										{person.role}
+									</strong>
+								</p>
+
+								<p>
+									{person.email}
+								</p>
+							</PersonWrapper>,
+						)}
 					</PeopleWrapper>
-					: null
-				}
+					: null}
 			</Article>
 		</Container1>
-	);	
+	);
 };
 
 export default Generic;

@@ -18,12 +18,12 @@ const Wrapper = styled.div`
 const Button = styled(NavLink)`
 	border-bottom: 3px solid transparent;
 	border-top: 1px solid transparent;
-	color: ${R.path([ "theme", "logo1", ])};
+	color: ${R.path(["theme", "logo1",])};
 	display: inline-block;
 	font-size: 0.9em;
-	height: ${ vars.dim.nav.height.other };
-	line-height: ${ vars.dim.nav.height.other };
-	padding: 0 ${ mixins.num(vars.dim.nav.margin.other) * 0.5 }px;
+	height: ${vars.dim.nav.height.other};
+	line-height: ${vars.dim.nav.height.other};
+	padding: 0 ${mixins.num(vars.dim.nav.margin.other) * 0.5}px;
 	font-weight: lighter;
 
 
@@ -34,20 +34,16 @@ const Button = styled(NavLink)`
 
 // --------------------------------------------------
 
-export default props => (
+export default props =>
 	<Wrapper>
-		{
-			props.links
-			.map((route, i) =>
-				<Button
-					key = { route.title }
-					to = { route.link || route.path }
-					activeClassName = "active"
-					onClick = { props.close }
-				>
-					{ route.title }
-				</Button>,
-			)
-		}
-	</Wrapper>
-);
+		{props.links.map((route, i) =>
+			<Button
+				key = { route.title }
+				to = { route.link || route.path }
+				activeClassName = "active"
+				onClick = { props.close }
+			>
+				{route.title}
+			</Button>,
+		)}
+	</Wrapper>;

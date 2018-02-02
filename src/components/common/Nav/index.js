@@ -15,11 +15,10 @@ import Fade from "../Fade";
 // --------------------------------------------------
 
 const Wrapper = styled.nav`
-	${ mixins.bp.sm.min`${ mixins.shadow(1) }` } ${ mixins.bpEither(
-		"height",
-		vars.dim.nav.height,
-	) }
-	background-color: ${R.path([ "theme", "nav", ])};
+	${mixins.bp.sm.min`${mixins.shadow(1)}`} ${mixins.bpEither(
+	"height",
+	vars.dim.nav.height,
+)} background-color: ${R.path(["theme", "nav",])};
 	left: 0;
 	position: fixed;
 	right: 0;
@@ -39,18 +38,18 @@ const Inner = styled.div`
 `;
 
 const MobileStuff = styled.div`
-	${ mixins.bp.sm.min`display: none;`} ${mixins.contained()};
+	${mixins.bp.sm.min`display: none;`} ${mixins.contained()};
 `;
 
 const Dark = styled.div`
-	${ mixins.contained() } position: fixed;
+	${mixins.contained()} position: fixed;
 	background: ${mixins.tr(0.5)};
 `;
 
 const Overlay = styled.div`
-	${ mixins.contained() } ${({ open, }) =>
+	${mixins.contained()} ${({ open, }) =>
 	open ? mixins.shadow(1) : ""} transition: 0.3s all ease-out;
-	background-color: ${R.path([ "theme", "nav", ])};
+	background-color: ${R.path(["theme", "nav",])};
 `;
 
 const BurgerWrapper = styled.div`
@@ -72,7 +71,7 @@ const LogoImage = styled.img`
 
 const Logo = props =>
 	<LogoWrapper to = "/">
-		<LogoImage src = "/img/igpf-logo.png"/>
+		<LogoImage src = "/img/igpf-logo.png" />
 	</LogoWrapper>;
 
 const IndexLink = props => <Link to = "/" { ...props } />;
@@ -81,7 +80,7 @@ const LogoWrapper = styled(IndexLink)` // should be IndexLink
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	${ mixins.bpEither("left", vars.dim.nav.margin )}
+	${mixins.bpEither("left", vars.dim.nav.margin)}
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -104,7 +103,6 @@ export default class Nav extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<Wrapper>
 				<Inner>
@@ -114,8 +112,7 @@ export default class Nav extends React.Component {
 								onClick = { () =>
 									this.setState({
 										open: false,
-									}) 
-								}
+									}) }
 							/>
 						</Fade>
 					</MobileStuff>
@@ -130,14 +127,13 @@ export default class Nav extends React.Component {
 					/>
 
 					<MobileStuff>
-						<Overlay { ...this.state }/>
-						
+						<Overlay { ...this.state } />
+
 						<BurgerWrapper
 							onClick = { () =>
 								this.setState({
 									open: !this.state.open,
-								})
-							}
+								}) }
 						>
 							<Burger
 								{ ...this.state }
@@ -146,12 +142,10 @@ export default class Nav extends React.Component {
 							/>
 						</BurgerWrapper>
 					</MobileStuff>
-					
+
 					<Logo />
 				</Inner>
 			</Wrapper>
 		);
 	}
 }
-
-

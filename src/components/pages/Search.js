@@ -14,9 +14,7 @@ import {
 import * as vars from "../style/vars";
 import * as mixins from "../style/mixins";
 
-import {
-	allSectionsList,
-} from "src/data";
+import { allSectionsList, } from "src/data";
 
 // --------------------------------------------------
 
@@ -30,16 +28,15 @@ const ResultInner = styled(GridCell)`
 
 // --------------------------------------------------
 
-const match = (str, query) => (
-	str.toLowerCase().indexOf(query.toLowerCase()) > -1
-);
+const match = (str, query) =>
+	str.toLowerCase().indexOf(query.toLowerCase()) > -1;
 
 const findMatches = query => {
 	const matches = [];
 	allSectionsList.forEach(o => {
-		if(
-			(o.title && match(o.title, query))
-			|| (o.html && match(o.html, query))
+		if (
+			(o.title && match(o.title, query)) ||
+			(o.html && match(o.html, query))
 		) {
 			matches.push(o);
 		}
@@ -47,27 +44,27 @@ const findMatches = query => {
 	return matches;
 };
 
-const Search = ({ match: { params: { query, }, }, }) => (
+const Search = ({ match: { params: { query, }, }, }) =>
 	<Container>
 		<TextCell>
-			<h1>Search results for "{ query }":</h1>
+			<h1>
+				Search results for "{query}":
+			</h1>
 		</TextCell>
-		{
-			findMatches(query)
-			.map(o => (
-				<ResultWrapper key = { o.slug }>
-					<Link to = { o.path }>
-						<ResultInner>
-							<TextCell>
-								<h2>{ o.title }</h2>
-								<p>{ `${window.location.origin}${o.path}` }</p>
-							</TextCell>
-						</ResultInner>
-					</Link>
-				</ResultWrapper>
-			))
-		}
-	</Container>
-);
+		{findMatches(query).map(o =>
+			<ResultWrapper key = { o.slug }>
+				<Link to = { o.path }>
+					<ResultInner>
+						<TextCell>
+							<h2>
+								{o.title}
+							</h2>
+							<p>{`${window.location.origin}${o.path}`}</p>
+						</TextCell>
+					</ResultInner>
+				</Link>
+			</ResultWrapper>,
+		)}
+	</Container>;
 
 export default Search;
