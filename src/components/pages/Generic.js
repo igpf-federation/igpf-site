@@ -47,10 +47,12 @@ const sidebarWidth = 36;
 const Container1 = styled(Container)`
 	display: flex;
 	flex-direction: row;
+	${mixins.xs`flex-direction: column;`}
 `;
 
 const Sidebar = styled(GridCell)`
 	width: ${sidebarWidth}%;
+	${mixins.xs`width: 100%;`}
 `;
 
 const FakeSidebar = styled.div`
@@ -76,6 +78,7 @@ const SidebarImage = styled.div`
 
 const Article = styled(GridCell)`
 	width: ${100 - sidebarWidth}%;
+	${mixins.xs`width: 100%;`}
 `;
 
 const PeopleWrapper = styled.div`
@@ -99,8 +102,6 @@ const PersonPicture = styled.div`
 // --------------------------------------------------
 
 const Generic = props => {
-	console.log("generic props", props);
-
 	const { subsection, service, job, slug, parent, } = props;
 
 	const { title, html, image: { url: imageUrl, }, people, } = allSectionsMap[
