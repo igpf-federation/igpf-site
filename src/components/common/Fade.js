@@ -134,10 +134,9 @@ const FirstChild = props => React.Children.toArray(props.children)[0] || null;
 
 export default props =>
 	<ReactTransitionGroup component = { FirstChild }>
-		{ props.visible
+		{props.visible
 			? <Fader fadeDuration = { props.fadeDuration } slide = { props.slide }>
 				{props.children}
 			</Fader>
-			: null
-		}
+			: null}
 	</ReactTransitionGroup>;

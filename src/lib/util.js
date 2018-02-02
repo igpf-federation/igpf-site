@@ -27,4 +27,4 @@ export const path = pathStr =>
 		}),
 	);
 
-export const randomInt = x => (Math.floor(Math.random() * x) % x);
+export const randomInt = x => Math.floor(Math.random() * x) % x;

@@ -4,101 +4,84 @@ import marked from "marked";
 import rawdata from "./rawdata";
 import { objMap, } from "./lib/util";
 
-const slugify = x => (
-	x
-	? _slugify(x, {
-		lower: true,
-	})
-	: ""
-).replace(":", "-");
+const slugify = x =>
+	(x
+		? _slugify(x, {
+			lower: true,
+		})
+		: "").replace(":", "-");
 
-const makeMapUsingSlugs = list => list.reduce((acc, item) => ({
-	...acc,
-	[item.slug]: item,
-}), {})
+const makeMapUsingSlugs = list =>
+	list.reduce(
+		(acc, item) => ({
+			...acc,
+			[item.slug]: item,
+		}),
+		{},
+	);
 
-const sectionsList = (
-	rawdata.items
+const sectionsList = rawdata.items
 	.filter(item => item.sys.contentType.sys.id === "section")
 	.map(item => {
 		const slug = slugify(item.fields.title);
 
 		return {
 			...item.fields,
-			image: (
-				item.fields.image
-				? item.fields.image.fields.file
-				: {}
-			),
-			subsections: (
-				item.fields.subsections
-				? item.fields.subsections.map(R.path([ "fields", "title", ])).map(slugify)
-				: []
-			),
-			services: (
-				item.fields.services
-				? item.fields.services.map(R.path([ "fields", "title", ])).map(slugify)
-				: []
-			),
-			jobs: (
-				item.fields.jobs
-				? item.fields.jobs.map(R.path([ "fields", "title", ])).map(slugify)
-				: []
-			),
+			image: item.fields.image ? item.fields.image.fields.file : {},
+			subsections: item.fields.subsections
+				? item.fields.subsections
+					.map(R.path(["fields", "title",]))
+					.map(slugify)
+				: [],
+			services: item.fields.services
+				? item.fields.services
+					.map(R.path(["fields", "title",]))
+					.map(slugify)
+				: [],
+			jobs: item.fields.jobs
+				? item.fields.jobs.map(R.path(["fields", "title",])).map(slugify)
+				: [],
 			slug,
 			html: marked(item.fields.content || ""),
 			path: `/${slug}`,
-		}
-	})
-);
+		};
+	});
 
-const lists = (
-	R.map(contentType => {
-		return (
-			rawdata.items
-			.filter(item => item.sys.contentType.sys.id === contentType)
-			.map(item => {
-				const slug = slugify(item.fields.title);
-				const parent = (
-					sectionsList.find(section => section[contentType + "s"].includes(slug))
-					|| {}
-				).slug;
-				
-				return {
-					...item.fields,
-					image: (
-						item.fields.image
-						? item.fields.image.fields.file
-						: {}
-					),
-					slug,
-					html: marked(item.fields.content || ""),
-					parent,
-					path: `/${contentType === "subsection" ? parent : contentType + "s"}/${slug}`,
-					[contentType]: true,
-					people: (
-						item.fields.people
-						? item.fields.people.map( person => (
-							{
-								...person.fields,
-								picture: (
-									person.fields && person.fields.picture
+const lists = R.map(contentType => {
+	return rawdata.items
+		.filter(item => item.sys.contentType.sys.id === contentType)
+		.map(item => {
+			const slug = slugify(item.fields.title);
+			const parent = (sectionsList.find(section =>
+				section[contentType + "s"].includes(slug),
+			) || {}).slug;
+
+			return {
+				...item.fields,
+				image: item.fields.image ? item.fields.image.fields.file : {},
+				slug,
+				html: marked(item.fields.content || ""),
+				parent,
+				path: `/${contentType === "subsection"
+					? parent
+					: contentType + "s"}/${slug}`,
+				[contentType]: true,
+				people: item.fields.people
+					? item.fields.people.map(person => ({
+						...person.fields,
+						picture:
+								person.fields && person.fields.picture
 									? person.fields.picture.fields.file
-									: {}
-								),
-							}
-						))
-						: undefined
-					),
-				};
-			})
-		);
-	})({
-		subsection: "subsection",
-		service: "service",
-		job: "job",
-	})
-);
+									: {},
+					}))
+					: undefined,
+			};
+		});
+})({
+	subsection: "subsection",
+	service: "service",
+	job: "job",
+});
 
 console.log("lists", lists);
 
@@ -127,28 +110,20 @@ const allSectionsMap = {
 };
 
 const shapeLink = link => {
-	const title = R.path([ "fields", "title", ])(link);
+	const title = R.path(["fields", "title",])(link);
 	return {
 		title,
 		path: "/" + slugify(title),
-	}
+	};
 };
 
-const nav = (
-	rawdata.items
-	.filter(item => item.sys.contentType.sys.id === "nav")
-	[1]//.filter(item => item.type === "nav")
-	.fields.links
-	.map(shapeLink)
-);
+const nav = rawdata.items
+	.filter(item => item.sys.contentType.sys.id === "nav")[1] //.filter(item => item.type === "nav")
+	.fields.links.map(shapeLink);
 
-const footer = (
-	rawdata.items
-	.filter(item => item.sys.contentType.sys.id === "nav")
-	[0]//.filter(item => item.type === "footer")
-	.fields.links
-	.map(shapeLink)
-);
+const footer = rawdata.items
+	.filter(item => item.sys.contentType.sys.id === "nav")[0] //.filter(item => item.type === "footer")
+	.fields.links.map(shapeLink);
 
 export {
 	nav,

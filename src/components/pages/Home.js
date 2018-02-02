@@ -40,9 +40,7 @@ const FakeSidebar = styled.div`
 	display: none;
 `;
 
-const SidebarInner = styled.div`
-	background-color: #eee;
-`;
+const SidebarInner = styled.div`background-color: #eee;`;
 
 const SidebarImage = styled.div`
 	padding-top: 75%;
@@ -60,11 +58,7 @@ const Article = styled(GridCell)`
 // --------------------------------------------------
 
 const Home = props => {
-	const {
-		subsection,
-		slug,
-		parent,
-	} = props;
+	const { subsection, slug, parent, } = props;
 
 	return (
 		<Container1>
@@ -84,9 +78,17 @@ const Home = props => {
 						<h3>Who We Are</h3>
 					</Link>
 
-					<div>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum.</div>
+					<div>
+						Curabitur blandit tempus porttitor. Aenean eu leo quam.
+						Pellentesque ornare sem lacinia quam venenatis
+						vestibulum. Donec sed odio dui. Donec ullamcorper nulla
+						non metus auctor fringilla. Nullam id dolor id nibh
+						ultricies vehicula ut id elit. Vestibulum id ligula
+						porta felis euismod semper. Maecenas faucibus mollis
+						interdum.
+					</div>
 
-					<br/>
+					<br />
 
 					<Link to = "/who-we-are">
 						<div>Find out more</div>
@@ -98,9 +100,17 @@ const Home = props => {
 						<h3>What We Do</h3>
 					</Link>
 
-					<div>Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum.</div>
+					<div>
+						Curabitur blandit tempus porttitor. Aenean eu leo quam.
+						Pellentesque ornare sem lacinia quam venenatis
+						vestibulum. Donec sed odio dui. Donec ullamcorper nulla
+						non metus auctor fringilla. Nullam id dolor id nibh
+						ultricies vehicula ut id elit. Vestibulum id ligula
+						porta felis euismod semper. Maecenas faucibus mollis
+						interdum.
+					</div>
 
-					<br/>
+					<br />
 
 					<Link to = "/what-we-do">
 						<div>Find out more</div>
@@ -108,7 +118,7 @@ const Home = props => {
 				</TextCell>
 			</Article>
 		</Container1>
-	);	
+	);
 };
 
 export default Home;
