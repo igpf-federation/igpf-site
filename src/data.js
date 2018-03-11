@@ -58,7 +58,7 @@ const lists = R.map(contentType => {
 
 			return {
 				...item.fields,
-				image: item.fields.image ? item.fields.image.fields.file : {},
+				image: item.fields.image && item.fields.image.fields ? item.fields.image.fields.file : {},
 				slug,
 				html: marked(item.fields.content || ""),
 				parent,
@@ -69,9 +69,9 @@ const lists = R.map(contentType => {
 				people: item.fields.people
 					? item.fields.people.map(person => ({
 						...person.fields,
-						picture:
-								person.fields && person.fields.picture
-									? person.fields.picture.fields.file
+						image:
+								person.fields && person.fields.image && person.fields.image.fields
+									? person.fields.image.fields.file
 									: {},
 					}))
 					: undefined,
