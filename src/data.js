@@ -8,8 +8,9 @@ const slugify = x =>
 	(x
 		? _slugify(x, {
 			lower: true,
-		})
-		: "").replace(":", "-");
+		  })
+		: ""
+	).replace(":", "-");
 
 const makeMapUsingSlugs = list =>
 	list.reduce(
@@ -30,20 +31,20 @@ const sectionsList = rawdata.items
 			image: item.fields.image ? item.fields.image.fields.file : {},
 			subsections: item.fields.subsections
 				? item.fields.subsections
-					.map(R.path(["fields", "title",]))
+					.map(R.path([ "fields", "title", ]))
 					.map(slugify)
 				: [],
 			services: item.fields.services
 				? item.fields.services
-					.map(R.path(["fields", "title",]))
+					.map(R.path([ "fields", "title", ]))
 					.map(slugify)
 				: [],
 			jobs: item.fields.jobs
-				? item.fields.jobs.map(R.path(["fields", "title",])).map(slugify)
+				? item.fields.jobs.map(R.path([ "fields", "title", ])).map(slugify)
 				: [],
 			slug,
 			html: marked(item.fields.content || ""),
-			path: `/${slug}`,
+			path: `/${ slug }`,
 		};
 	});
 
@@ -52,28 +53,35 @@ const lists = R.map(contentType => {
 		.filter(item => item.sys.contentType.sys.id === contentType)
 		.map(item => {
 			const slug = slugify(item.fields.title);
-			const parent = (sectionsList.find(section =>
-				section[contentType + "s"].includes(slug),
-			) || {}).slug;
+			const parent = (
+				sectionsList.find(section =>
+					section[contentType + "s"].includes(slug),
+				) || {}
+			).slug;
 
 			return {
 				...item.fields,
-				image: item.fields.image && item.fields.image.fields ? item.fields.image.fields.file : {},
+				image:
+					item.fields.image && item.fields.image.fields
+						? item.fields.image.fields.file
+						: {},
 				slug,
 				html: marked(item.fields.content || ""),
 				parent,
-				path: `/${contentType === "subsection"
-					? parent
-					: contentType + "s"}/${slug}`,
+				path: `/${
+					contentType === "subsection" ? parent : contentType + "s"
+				}/${ slug }`,
 				[contentType]: true,
 				people: item.fields.people
 					? item.fields.people.map(person => ({
 						...person.fields,
 						image:
-								person.fields && person.fields.image && person.fields.image.fields
+								person.fields &&
+								person.fields.image &&
+								person.fields.image.fields
 									? person.fields.image.fields.file
 									: {},
-					}))
+					  }))
 					: undefined,
 			};
 		});
@@ -110,7 +118,7 @@ const allSectionsMap = {
 };
 
 const shapeLink = link => {
-	const title = R.path(["fields", "title",])(link);
+	const title = R.path([ "fields", "title", ])(link);
 	return {
 		title,
 		path: "/" + slugify(title),

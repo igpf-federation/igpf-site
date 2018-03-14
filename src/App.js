@@ -20,14 +20,17 @@ const defaultColors = {
 	...vars.colors,
 };
 
-const routes = routesConfig.map(({ component: Comp, path, exact,
-	...rest }, i) => {
-	const render = props => <Comp { ...props } { ...rest } />;
+const routes = routesConfig.map(
+	({ component: Comp, path, exact, ...rest }, i) => {
+		const render = props => <Comp { ...props } { ...rest } />;
 
-	return <Route key = { path + i } path = { path } exact = { exact } render = { render } />;
-});
+		return (
+			<Route key = { path + i } path = { path } exact = { exact } render = { render } />
+		);
+	},
+);
 
-export default () =>
+export default () => (
 	<Router>
 		<ScrollToTop>
 			<ThemeProvider theme = { defaultColors }>
@@ -46,13 +49,12 @@ export default () =>
 					<Nav key = "Nav" />
 
 					<Main key = "Main">
-						<Switch>
-							{routes}
-						</Switch>
+						<Switch>{routes}</Switch>
 					</Main>
 
 					<Footer key = "Footer" />
 				</div>
 			</ThemeProvider>
 		</ScrollToTop>
-	</Router>;
+	</Router>
+);

@@ -17,19 +17,21 @@ const Wrapper = styled.footer`
 	bottom: 0;
 	left: 0;
 	right: 0;
-	${mixins.bpEither("height", vars.dim.footer.height)} overflow: hidden;
+	${ mixins.bpEither("height", vars.dim.footer.height) } overflow: hidden;
 
-	${({ theme: { footer, }, }) => `
-		background-color: ${footer};
-		${footer && footer !== vars.colors.footer
+	${ ({ theme: { footer, }, }) => `
+		background-color: ${ footer };
+		${
+	footer && footer !== vars.colors.footer
 		? ""
-		: `border-top: 1px solid ${mixins.tr(0.2)};`}		
-	`};
+		: `border-top: 1px solid ${ mixins.tr(0.2) };`
+}		
+	` };
 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	${mixins.bpEither("padding", vars.dim.nav.margin)};
+	${ mixins.bpEither("padding", vars.dim.nav.margin) };
 `;
 
 const Left = styled.div`
@@ -53,12 +55,14 @@ const Right = styled.div`
 	}
 `;
 
-const Divider = styled.span`margin: 0 0.5em;`;
+const Divider = styled.span`
+	margin: 0 0.5em;
+`;
 
-const Footer = () =>
+const Footer = () => (
 	<Wrapper>
 		<Left>
-			© Islington GP Federation 2017
+			© Islington GP Group Limited 2018
 			<Links links = { footer } />
 		</Left>
 
@@ -71,6 +75,7 @@ const Footer = () =>
 				<Icon type = "twitter" />
 			</a>
 		</Right>
-	</Wrapper>;
+	</Wrapper>
+);
 
 export default Footer;

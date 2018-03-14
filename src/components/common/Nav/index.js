@@ -4,8 +4,6 @@ import { Link, } from "react-router-dom";
 
 import * as mixins from "../../style/mixins";
 import * as vars from "../../style/vars";
-import { objMap, } from "../../../lib/util";
-import routesConfig from "../../../routesConfig";
 import { nav, } from "../../../data";
 
 import Links from "./Links";
@@ -15,20 +13,15 @@ import Fade from "../Fade";
 // --------------------------------------------------
 
 const Wrapper = styled.nav`
-	${mixins.bp.sm.min`${mixins.shadow(1)}`} ${mixins.bpEither(
-	"height",
-	vars.dim.nav.height,
-)} background-color: ${R.path(["theme", "nav",])};
+	${ mixins.bp.sm.min`${ mixins.shadow(1) }` };
+	${ mixins.bpEither("height", vars.dim.nav.height) };
+	background-color: ${ R.path([ "theme", "nav", ]) };
 	left: 0;
 	position: fixed;
 	right: 0;
 	top: 0;
 	z-index: 2;
 	color: white;
-
-	& a {
-		color: white !important;
-	}
 `;
 
 const Inner = styled.div`
@@ -38,18 +31,22 @@ const Inner = styled.div`
 `;
 
 const MobileStuff = styled.div`
-	${mixins.bp.sm.min`display: none;`} ${mixins.contained()};
+	${ mixins.bp.md.min`display: none;` };
+	${ mixins.contained() };
 `;
 
 const Dark = styled.div`
-	${mixins.contained()} position: fixed;
-	background: ${mixins.tr(0.5)};
+	${ mixins.contained() };
+	position: fixed;
+	background: ${ mixins.tr(0.5) };
 `;
 
 const Overlay = styled.div`
-	${mixins.contained()} ${({ open, }) =>
-	open ? mixins.shadow(1) : ""} transition: 0.3s all ease-out;
-	background-color: ${R.path(["theme", "nav",])};
+	${ mixins.contained() };
+	${ ({ open, }) =>
+		open ? mixins.shadow(1) : "" };
+	transition: 0.3s all ease-out;
+	background-color: ${ R.path([ "theme", "nav", ]) };
 `;
 
 const BurgerWrapper = styled.div`
@@ -59,37 +56,26 @@ const BurgerWrapper = styled.div`
 	margin-top: -20px;
 `;
 
-const LogoText = styled.div`
-	font-size: 2em;
-	font-family: ${vars.font.title.family};
-`;
-
 const LogoImage = styled.img`
 	height: 80%;
 	width: auto;
 `;
 
-const Logo = props =>
+const Logo = props => (
 	<LogoWrapper to = "/">
 		<LogoImage src = "/img/igpf-logo.png" />
-	</LogoWrapper>;
+	</LogoWrapper>
+);
 
 const IndexLink = props => <Link to = "/" { ...props } />;
 
-const LogoWrapper = styled(IndexLink)` // should be IndexLink
+const LogoWrapper = styled(IndexLink)`
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	${mixins.bpEither("left", vars.dim.nav.margin)}
-	display: flex;
+	${ mixins.bpEither("left", vars.dim.nav.margin) } display: flex;
 	flex-direction: row;
 	align-items: center;
-`;
-
-const Translator = styled.div`
-	position: fixed;
-	left: 0;
-	bottom: 0;
 `;
 
 // --------------------------------------------------
@@ -112,7 +98,8 @@ export default class Nav extends React.Component {
 								onClick = { () =>
 									this.setState({
 										open: false,
-									}) }
+									})
+								}
 							/>
 						</Fade>
 					</MobileStuff>
@@ -122,7 +109,8 @@ export default class Nav extends React.Component {
 						close = { () =>
 							this.setState({
 								open: false,
-							}) }
+							})
+						}
 						{ ...this.state }
 					/>
 
@@ -133,12 +121,12 @@ export default class Nav extends React.Component {
 							onClick = { () =>
 								this.setState({
 									open: !this.state.open,
-								}) }
+								})
+							}
 						>
 							<Burger
 								{ ...this.state }
 								padding = { mixins.num(vars.dim.nav.margin.xs) }
-								color = { "white" }
 							/>
 						</BurgerWrapper>
 					</MobileStuff>
