@@ -32,20 +32,22 @@ const Container1 = styled(Container)`
 `;
 
 const Sidebar = styled(GridCell)`
-	width: ${sidebarWidth}%;
+	width: ${ sidebarWidth }%;
 `;
 
 const FakeSidebar = styled.div`
-	width: ${sidebarWidth}%;
+	width: ${ sidebarWidth }%;
 	display: none;
 `;
 
-const SidebarInner = styled.div`background-color: #eee;`;
+const SidebarInner = styled.div`
+	background-color: #eee;
+`;
 
 const SidebarImage = styled.div`
 	padding-top: 75%;
 	background-color: #bbb;
-	background-image: url(${R.prop("src")});
+	background-image: url(${ R.prop("src") });
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;

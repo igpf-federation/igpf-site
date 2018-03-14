@@ -1,6 +1,6 @@
 import { printObj, } from "src/lib/util";
 
-export default data => () =>
+export default data => () => (
 	<div
 		style = { {
 			whiteSpace: "pre-wrap",
@@ -10,4 +10,5 @@ export default data => () =>
 	>
 		{printObj(data)}
 		{console.log(data)}
-	</div>;
+	</div>
+);

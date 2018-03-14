@@ -44,27 +44,24 @@ const findMatches = query => {
 	return matches;
 };
 
-const Search = ({ match: { params: { query, }, }, }) =>
+const Search = ({ match: { params: { query, }, }, }) => (
 	<Container>
 		<TextCell>
-			<h1>
-				Search results for "{query}":
-			</h1>
+			<h1>Search results for "{query}":</h1>
 		</TextCell>
-		{findMatches(query).map(o =>
+		{findMatches(query).map(o => (
 			<ResultWrapper key = { o.slug }>
 				<Link to = { o.path }>
 					<ResultInner>
 						<TextCell>
-							<h2>
-								{o.title}
-							</h2>
-							<p>{`${window.location.origin}${o.path}`}</p>
+							<h2>{o.title}</h2>
+							<p>{`${ window.location.origin }${ o.path }`}</p>
 						</TextCell>
 					</ResultInner>
 				</Link>
-			</ResultWrapper>,
-		)}
-	</Container>;
+			</ResultWrapper>
+		))}
+	</Container>
+);
 
 export default Search;
