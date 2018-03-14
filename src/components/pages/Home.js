@@ -7,13 +7,27 @@ import {
 	TextCell,
 } from "src/components/common";
 
+import * as mixins from "../style/mixins";
+
 import Banner from "src/components/common/Banner";
 
 // --------------------------------------------------
 
+const sidebarWidth = 36;
+
+const Sidebar = styled(GridCell)`
+	width: ${ sidebarWidth }%;
+	${ mixins.xs`width: 100%;` };
+`;
+
+const SidebarInner = styled.div`
+	background-color: #eee;
+`;
+
 const HomeContainer = styled(Container)`
 	display: flex;
 	flex-direction: row;
+	${ mixins.xs`flex-direction: column;` }
 `;
 
 const Article = styled(GridCell)`
@@ -83,6 +97,18 @@ const Home = () => {
 						</Link>
 					</TextCell>
 				</Article>
+
+				<Sidebar>
+					<SidebarInner>
+						<GridCell>
+							<p>Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+							
+							<p>Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+							
+							<p>Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+						</GridCell>
+					</SidebarInner>
+				</Sidebar>
 			</HomeContainer>
 		</div>
 	);

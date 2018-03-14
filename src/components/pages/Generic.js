@@ -39,7 +39,7 @@ console.log({
 
 const sidebarWidth = 36;
 
-const Container1 = styled(Container)`
+const GenericContainer = styled(Container)`
 	display: flex;
 	flex-direction: row;
 	${ mixins.xs`flex-direction: column;` };
@@ -143,7 +143,7 @@ const Generic = props => {
 	}));
 
 	return (
-		<Container1>
+		<GenericContainer>
 			<Sidebar>
 				<SidebarInner>
 					{
@@ -240,7 +240,7 @@ const Generic = props => {
 					</PeopleWrapper>
 				) : null}
 			</Article>
-		</Container1>
+		</GenericContainer>
 	);
 };
 
