@@ -72,24 +72,23 @@ const buttonStyle = [
 	`,
 ];
 
-// should be Link
-const Button = styled(NavLink)`
-	color: ${ R.path([ "theme", "logo1", ]) };
-	color: #595958;
+const MenuLink = styled(NavLink)`
 	font-size: 1.1em;
 
 	${ mixins.bp.sm.max`${ buttonStyle[0] }` };
 	${ mixins.bp.md.min`${ buttonStyle[1] }` };
+
+	:hover {
+		opacity: 0.5;
+	}
 `;
 
 const FunkyButton = styled.div`
 	height: auto;
 	background-color: rgba(0, 0, 0, 0.25);
-
 	border: 0;
 	border-top: 2px solid transparent;
 	position: relative;
-	color: ${ R.path([ "theme", "logo1", ]) };
 	font-size: 1.1em;
 
 	${ mixins.bp.sm.max`
@@ -110,6 +109,10 @@ const FunkyButton = styled.div`
 			margin-right: ${ mixins.num(vars.dim.nav.margin.other) * 0.5 }px;
 		}
 	` };
+
+	:hover {
+		background-color: ${ vars.colors.primary };
+	}
 `;
 
 const TranslateButton = styled(FunkyButton)`
@@ -183,14 +186,14 @@ export default props => (
 		<div>
 			{
 				props.links.map((route, i) => (
-					<Button
+					<MenuLink
 						key = { route.title }
 						to = { route.link || route.path }
 						activeClassName = "active"
 						onClick = { props.close }
 					>
 						{route.title}
-					</Button>
+					</MenuLink>
 				))
 			}
 		</div>
