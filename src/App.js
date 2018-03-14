@@ -49,7 +49,7 @@ export default () => (
 					<Nav key = "Nav" />
 
 					<Main key = "Main">
-						<Switch>{routes}</Switch>
+						<Switch>{ routes }</Switch>
 					</Main>
 
 					<Footer key = "Footer" />

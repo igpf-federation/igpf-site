@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import IslingtonMap from "src/components/images/islington-map.jpeg";
-
 // --------------------------------
 
 const BannerWrapper = styled.div`
@@ -19,7 +17,7 @@ const BannerBackground = styled.img`
 
 const Banner = () => (
 	<BannerWrapper>
-		<BannerBackground src = { IslingtonMap } alt = "Map of Islington"/>
+		<BannerBackground src = "/img/islington-map.jpeg" alt = "Map of Islington"/>
 	</BannerWrapper>
 )
 
