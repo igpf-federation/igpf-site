@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link, } from "react-router-dom";
 
 import {
 	Container,
@@ -7,9 +6,15 @@ import {
 	TextCell,
 } from "src/components/common";
 
+import Translate from "src/components/common/Translate";
+
 import * as mixins from "codogo-utility-functions";
 
 import Banner from "src/components/common/Banner";
+
+import {
+	siteSettings,
+} from "src/data";
 
 // --------------------------------------------------
 
@@ -37,27 +42,21 @@ const Article = styled(GridCell)`
 const Home = () => {
 	return (
 		<div>
+			<Translate />
+
 			<Banner/>
 
 			<HomeContainer>
 				<Article>
 					<TextCell>
-						here
-					</TextCell>
-
-					<TextCell>
-						yes
+						<div dangerouslySetInnerHTML = { { __html: siteSettings.homepageContentHTML, } } />
 					</TextCell>
 				</Article>
 
 				<Sidebar>
 					<SidebarInner>
 						<GridCell>
-							<p>Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-							
-							<p>Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-							
-							<p>Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+							<div dangerouslySetInnerHTML = { { __html: siteSettings.homepageSidebarHTML, } } />
 						</GridCell>
 					</SidebarInner>
 				</Sidebar>
