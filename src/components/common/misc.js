@@ -4,23 +4,21 @@ import R from "ramda";
 import { Link, } from "react-router-dom";
 import MQ from "react-responsive";
 
-import * as mixins from "../style/mixins";
+import * as mixins from "codogo-utility-functions";
 import * as vars from "../style/vars";
 import { objMap, } from "../../lib/util";
 
 // --------------------------------------------------
 
 export const GridCell = styled.div`
-	${ mixins.bpEach("padding", vars.dim.gutter.half) } ${ p =>
-	p.flex ? `flex: ${ p.flex };` : "" };
+	${ mixins.bpEach("padding", vars.dim.gutter.half) };
+	${ p => p.flex ? `flex: ${ p.flex };` : "" };
 `;
 
-const textBoxMargins = objMap(vars.font.size, (key, val) => `-${ val } 0`);
 
 export const TextBox = styled.div`
-	${ mixins.bpEach("margin", textBoxMargins) } ${ p =>
-	p.bold ? "font-weight: bold;" : "" } ${ p =>
-	p.align ? `text-align: ${ p.align };` : "" };
+	${ p => p.bold ? "font-weight: bold;" : "" };
+	${ p => p.align ? `text-align: ${ p.align };` : "" };
 `;
 
 export const TextCell = props => (

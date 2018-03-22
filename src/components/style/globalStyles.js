@@ -2,8 +2,7 @@ import React from "react";
 import { injectGlobal, } from "styled-components";
 
 import * as vars from "./vars";
-import * as mixins from "./mixins";
-import { objMap, } from "../../lib/util";
+import * as mixins from "codogo-utility-functions";
 
 // --------------------------------------------------
 
@@ -96,7 +95,7 @@ export default () => injectGlobal`
 	}
 
 	p, h1, h2, h3, h4 {
-		${ mixins.bpEach("margin", objMap(vars.font.size, (key, val) => val + " 0")) }
+		${ mixins.bpEach("margin", mixins.objectMap(vars.font.size, (key, val) => `0 0 ${ val } 0`)) }
 	}
 
 	img {
@@ -129,7 +128,7 @@ export default () => injectGlobal`
 	  transition: opacity 250ms ease-in;
 	}
 
-	// overwriting google translate widget stupid styles
+	// --- overwriting google translate widget stupid styles
 
 	.goog-te-banner-frame {
 		top: auto !important;

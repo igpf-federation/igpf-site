@@ -5,7 +5,7 @@ import { withRouter, } from "react-router";
 import { compose, withState, withHandlers, withProps, } from "recompose";
 import { Icon, } from "../misc";
 
-import * as mixins from "../../style/mixins";
+import * as mixins from "codogo-utility-functions";
 import * as vars from "../../style/vars";
 
 // --------------------------------------------------

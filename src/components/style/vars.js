@@ -18,7 +18,8 @@ export const colors = {
 	text: "#575756",
 	nav: "#eeeeee",
 	footer: "#eeeeee",
-	grey: "rgba(0,0,0,0.2)",
+	transparentGray: "rgba(0,0,0,0.2)",
+	gray: "#eee",
 	lines: "rgba(0,0,0,0.2)",
 	primary: "#E85585",
 	alt: "#362c5a",
@@ -128,5 +129,3 @@ dimensions.gutter.container = {
 export const dim = dimensions;
 
 export const imageViewerFadeDuration = 200;
-
-export const bookUrl = "/img/the-rainbow-conspiracy.png";
