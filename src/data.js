@@ -2,7 +2,6 @@ import _slugify from "slugify";
 import marked from "marked";
 
 import rawdata from "./rawdata";
-import { objMap, } from "./lib/util";
 
 const slugify = x =>
 	(x
@@ -20,6 +19,19 @@ const makeMapUsingSlugs = list =>
 		}),
 		{},
 	);
+
+const _siteSettings = rawdata.items
+	.filter(item => item.sys.contentType.sys.id === "siteSettings")
+	.map(item => {
+		console.log(item);
+
+		return {
+			...item.fields,
+			homepageContentHTML: marked(item.fields.homepageContent),
+			homepageSidebarHTML: marked(item.fields.homepageSidebar),
+		};
+	});
+const siteSettings = _siteSettings[0];
 
 const sectionsList = rawdata.items
 	.filter(item => item.sys.contentType.sys.id === "section")
@@ -147,4 +159,5 @@ export {
 	allSectionsList,
 	allSectionsMap,
 	rawdata,
+	siteSettings,
 };

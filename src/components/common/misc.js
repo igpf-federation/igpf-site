@@ -166,3 +166,36 @@ export const Only = objMap(vars.bps, (key, val) => ({ children, }) => (
 		children = { children }
 	/>
 ));
+
+export const FunkyButton = styled.div`
+	height: auto;
+	background-color: rgba(0, 0, 0, 0.25);
+	border: 0;
+	border-top: 2px solid transparent;
+	position: relative;
+	font-size: 1.1em;
+
+	${ mixins.bp.sm.max`
+		display: block;
+		padding: ${ 1 * mixins.num(vars.dim.nav.margin.xs) }px;
+		border-bottom: 1px solid ${ R.path([ "theme", "nav", ]) };
+
+		&:last-child {
+			border-bottom: 0;
+		}
+	` };
+	${ mixins.bp.md.min`
+		padding: 0 ${ mixins.num(vars.dim.nav.margin.other) * 0.5 }px;
+		display: inline-block;
+		border-radius: 0.2em;
+		line-height: 2em;
+
+		&:first-child {
+			margin-right: ${ mixins.num(vars.dim.nav.margin.other) * 0.5 }px;
+		}
+	` };
+
+	:hover {
+		background-color: ${ vars.colors.primary };
+	}
+`;

@@ -4,11 +4,17 @@ import styled from "styled-components";
 import * as mixins from "codogo-utility-functions";
 import * as vars from "../../style/vars";
 
+import { withRouter, } from "react-router";
+import { compose, withState, withHandlers, withProps, } from "recompose";
+import { Icon, } from "../misc";
+
+import {
+	FunkyButton,
+} from "src/components/common";
+
 import { footer, } from "../../../data";
 
 import Links from "./Links";
-
-import { Icon, } from "./../misc";
 
 // --------------------------------------------------
 
@@ -43,7 +49,6 @@ const Right = styled.div`
 	opacity: 0.67;
 	display: flex;
 	flex-direction: row;
-	font-size: 1.5em;
 
 	a {
 		margin-left: 0.5em;
@@ -55,9 +60,54 @@ const Right = styled.div`
 	}
 `;
 
-const Divider = styled.span`
-	margin: 0 0.5em;
+// ---------------------------------
+
+const SearchIcon = Icon;
+
+const _SearchBar = styled.input`
+	color: white;
+	font-family: Frutiger, Archivo, sans-serif;
+	font-size: 0.7em;
+	margin-left: 0.5em;
+	background-color: transparent;
+	border: 0;
+	width: 5em;
+	transition-duration: 0.3s;
+	border-radius: 3px;
+
+	${ mixins.bp.md.min`
+		line-height: 2em;
+	` } &:focus {
+		outline: 0;
+		width: 8em;
+	}
+
+	&::placeholder {
+		color: white;
+	}
 `;
+
+const enhanceSearchBar = compose(
+	withRouter,
+	withState("searchText", "setSearchText", ""),
+	withHandlers({
+		onChange: ({ setSearchText, }) => e => setSearchText(e.target.value),
+		onKeyUp: ({ history, searchText, setSearchText, }) => e => {
+			if (e.keyCode === 13) {
+				history.push(`/search/${ searchText }`);
+				setSearchText("");
+			}
+		},
+	}),
+	withProps(({ searchText, }) => ({
+		value: searchText,
+		placeholder: "Search",
+	})),
+);
+
+const SearchBar = enhanceSearchBar(_SearchBar);
+
+// ---------------------------------
 
 const Footer = () => (
 	<Wrapper>
@@ -67,13 +117,11 @@ const Footer = () => (
 		</Left>
 
 		<Right>
-			<a href = "#">
-				<Icon type = "facebook-square" />
-			</a>
+			<FunkyButton>
+				<SearchIcon type = "search" />
 
-			<a href = "#">
-				<Icon type = "twitter" />
-			</a>
+				<SearchBar type = "text" />
+			</FunkyButton>
 		</Right>
 	</Wrapper>
 );
