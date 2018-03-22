@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import * as mixins from "../../style/mixins";
+import * as mixins from "codogo-utility-functions";
 import * as vars from "../../style/vars";
 
 import { footer, } from "../../../data";
@@ -24,7 +24,7 @@ const Wrapper = styled.footer`
 		${
 	footer && footer !== vars.colors.footer
 		? ""
-		: `border-top: 1px solid ${ mixins.tr(0.2) };`
+		: `border-top: 1px solid ${ mixins.transparent(0.2) };`
 }		
 	` };
 

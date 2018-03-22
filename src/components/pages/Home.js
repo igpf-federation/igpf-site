@@ -7,17 +7,15 @@ import {
 	TextCell,
 } from "src/components/common";
 
-import * as mixins from "../style/mixins";
+import * as mixins from "codogo-utility-functions";
 
 import Banner from "src/components/common/Banner";
 
 // --------------------------------------------------
 
-const sidebarWidth = 36;
-
 const Sidebar = styled(GridCell)`
-	width: ${ sidebarWidth }%;
-	${ mixins.xs`width: 100%;` };
+	flex: 1;
+	${ mixins.xs`flex: 2` };
 `;
 
 const SidebarInner = styled.div`
@@ -27,11 +25,11 @@ const SidebarInner = styled.div`
 const HomeContainer = styled(Container)`
 	display: flex;
 	flex-direction: row;
-	${ mixins.xs`flex-direction: column;` }
+	${ mixins.xs`flex-direction: column` };
 `;
 
 const Article = styled(GridCell)`
-	width: 100%;
+	flex: 2;
 `;
 
 // --------------------------------------------------
@@ -44,57 +42,11 @@ const Home = () => {
 			<HomeContainer>
 				<Article>
 					<TextCell>
-						<h2>The Islington GP Federation</h2>
-
-						<h1>Improving healthcare across North London</h1>
+						here
 					</TextCell>
 
 					<TextCell>
-						<div>A nice visual introduction would go here...</div>
-					</TextCell>
-
-					<TextCell>
-						<Link to = "/who-we-are">
-							<h3>Who We Are</h3>
-						</Link>
-
-						<div>
-							Curabitur blandit tempus porttitor. Aenean eu leo quam.
-							Pellentesque ornare sem lacinia quam venenatis
-							vestibulum. Donec sed odio dui. Donec ullamcorper nulla
-							non metus auctor fringilla. Nullam id dolor id nibh
-							ultricies vehicula ut id elit. Vestibulum id ligula
-							porta felis euismod semper. Maecenas faucibus mollis
-							interdum.
-						</div>
-
-						<br />
-
-						<Link to = "/who-we-are">
-							<div>Find out more</div>
-						</Link>
-					</TextCell>
-
-					<TextCell>
-						<Link to = "/what-we-do">
-							<h3>What We Do</h3>
-						</Link>
-
-						<div>
-							Curabitur blandit tempus porttitor. Aenean eu leo quam.
-							Pellentesque ornare sem lacinia quam venenatis
-							vestibulum. Donec sed odio dui. Donec ullamcorper nulla
-							non metus auctor fringilla. Nullam id dolor id nibh
-							ultricies vehicula ut id elit. Vestibulum id ligula
-							porta felis euismod semper. Maecenas faucibus mollis
-							interdum.
-						</div>
-
-						<br />
-
-						<Link to = "/what-we-do">
-							<div>Find out more</div>
-						</Link>
+						yes
 					</TextCell>
 				</Article>
 

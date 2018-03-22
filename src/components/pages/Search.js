@@ -12,7 +12,7 @@ import {
 } from "../common";
 
 import * as vars from "../style/vars";
-import * as mixins from "../style/mixins";
+import * as mixins from "codogo-utility-functions";
 
 import { allSectionsList, } from "src/data";
 

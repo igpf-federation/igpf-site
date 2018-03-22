@@ -7,7 +7,7 @@ import {
 	TextCell,
 } from "../common";
 
-import * as mixins from "../style/mixins";
+import * as mixins from "codogo-utility-functions";
 
 import {
 	sectionsList,
@@ -37,8 +37,6 @@ console.log({
 
 // --------------------------------------------------
 
-const sidebarWidth = 36;
-
 const GenericContainer = styled(Container)`
 	display: flex;
 	flex-direction: row;
@@ -46,12 +44,13 @@ const GenericContainer = styled(Container)`
 `;
 
 const Sidebar = styled(GridCell)`
-	width: ${ sidebarWidth }%;
-	${ mixins.xs`width: 100%;` };
+	flex: 1;
+	${ mixins.xs`flex: 2` };
 `;
 
 const FakeSidebar = styled.div`
-	width: ${ sidebarWidth }%;
+	flex: 1;
+	${ mixins.xs`flex: 2` };
 	display: none;
 `;
 
@@ -69,8 +68,7 @@ const SidebarImage = styled.div`
 `;
 
 const Article = styled(GridCell)`
-	width: ${ 100 - sidebarWidth }%;
-	${ mixins.xs`width: 100%;` };
+	flex: 2;
 `;
 
 const PeopleWrapper = styled.div`
