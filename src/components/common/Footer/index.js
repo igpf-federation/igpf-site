@@ -16,46 +16,57 @@ import Links from "./Links";
 
 // --------------------------------------------------
 
-const Wrapper = styled.footer`
+const FooterWrapper = styled.footer`
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	${ mixins.bpEither("height", vars.dim.footer.height) } overflow: hidden;
-
-	${ ({ theme: { footer, }, }) => `
-		background-color: ${ footer };
-		${
-	footer && footer !== vars.colors.footer
-		? ""
-		: `border-top: 1px solid ${ mixins.transparent(0.2) };`
-}		
-	` };
-
+	overflow: hidden;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
+
+	${ mixins.bpEither("height", vars.dim.footer.height) };
 	${ mixins.bpEither("padding", vars.dim.nav.margin) };
+	${ 
+		({ theme: { footer, }, }) => `
+			background-color: ${ footer };
+			${ footer && 
+				footer !== vars.colors.footer
+				? ""
+				: `border-top: 1px solid ${ mixins.transparent(0.2) };`
+			}		
+	` };
 `;
 
-const Left = styled.div`
-	font-weight: bold;
-	opacity: 0.67;
-`;
-
-const Right = styled.div`
-	opacity: 0.67;
+const FooterCredits = styled.div`
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	${ mixins.bp.sm.min`flex: 1;` }
+	${ mixins.xs`flex-grow: 1;` }
+	${ mixins.xs`flex-direction: column;` }
+`;
 
-	a {
-		margin-left: 0.5em;
-	}
 
-	& > a:hover,
-	& > a:active {
-		text-decoration: underline;
-	}
+const FooterCredit = styled.div`
+	font-size: 0.8em;
+	margin: 0 0.5em;
+`;
+
+const FooterLinks = styled.div`
+	display: flex;
+	flex-direction: row;
+	${ mixins.bp.sm.min`flex: 1;` }
+	${ mixins.xs`flex-grow: 1;` }
+`;
+
+const SearchWrapper = styled.div`
+	${ mixins.bp.sm.min`flex: 1;` }
+	${ mixins.xs`flex-grow: 1;` }
 `;
 
 // ---------------------------------
@@ -75,7 +86,9 @@ const _SearchBar = styled.input`
 
 	${ mixins.bp.md.min`
 		line-height: 2em;
-	` } &:focus {
+	` };
+
+	&:focus {
 		outline: 0;
 		width: 8em;
 	}
@@ -108,20 +121,25 @@ const SearchBar = enhanceSearchBar(_SearchBar);
 // ---------------------------------
 
 const Footer = () => (
-	<Wrapper>
-		<Left>
-			© Islington GP Group Limited 2018
+	<FooterWrapper>
+		<FooterLinks>
 			<Links links = { footer } />
-		</Left>
+		</FooterLinks>
 
-		<Right>
+		<SearchWrapper>
 			<FunkyButton>
 				<SearchIcon type = "search" />
 
 				<SearchBar type = "text" />
 			</FunkyButton>
-		</Right>
-	</Wrapper>
+		</SearchWrapper>
+
+		<FooterCredits>
+			<FooterCredit>&#169; Islington GP Group Limited 2018</FooterCredit>
+
+			<FooterCredit>Registered Company Number 07384595</FooterCredit>
+		</FooterCredits>
+	</FooterWrapper>
 );
 
 export default Footer;
