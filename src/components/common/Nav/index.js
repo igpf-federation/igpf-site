@@ -1,16 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Link, NavLink,  } from "react-router-dom";
-import { Nav, } from 'codogo-nav';
+import { Link, NavLink, } from "react-router-dom";
+import { Nav, } from "codogo-nav";
 
 import * as mixins from "codogo-utility-functions";
 import * as vars from "../../style/vars";
 
-import {
-	nav,
-	siteSettings,
-} from "src/data";
+import { nav, siteSettings, } from "src/data";
 
 // ---------------------------------
 
@@ -26,9 +23,9 @@ const LogoWrapper = styled(IndexLink)`
 `;
 
 const LogoImage = styled.img`
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
 	max-height: 100%;
 	object-fit: contain;
 	object-position: left;
@@ -42,28 +39,26 @@ const Logo = props => (
 
 // ---------------------------------
 
-const Header = (props) => (
+const Header = props => (
 	<Nav
 		logo = { <Logo /> }
-		fontSize = { { "xs": "0.7em", "other": "0.8em", } }
-		textTransform = { { "xs": "capitalize", "other": "capitalize", } }
-		backgroundColor = { { "xs": vars.colors.gray, "other": vars.colors.gray, } }
-		color = { { "xs": vars.colors.primary, "other": vars.colors.primary, } }
+		fontSize = { { xs: "1.1em", other: "0.8em", } }
+		textTransform = { { xs: "capitalize", other: "capitalize", } }
+		backgroundColor = { { xs: vars.colors.gray, other: vars.colors.gray, } }
+		color = { { xs: vars.colors.primary, other: vars.colors.primary, } }
 		shadow
 	>
-		{
-			nav.map((route, i) => (
-				<NavLink
-					key = { route.title }
-					to = { route.link || route.path }
-					activeClassName = "active"
-					onClick = { props.close }
-				>
-					{ route.title }
-				</NavLink>
-			))
-		}
+		{nav.map((route, i) => (
+			<NavLink
+				key = { route.title }
+				to = { route.link || route.path }
+				activeClassName = "active"
+				onClick = { props.close }
+			>
+				{route.title}
+			</NavLink>
+		))}
 	</Nav>
-)
+);
 
 export default Header;

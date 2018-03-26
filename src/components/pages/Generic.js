@@ -1,11 +1,7 @@
 import styled from "styled-components";
 import { Link, } from "react-router-dom";
 
-import {
-	Container,
-	GridCell,
-	TextCell,
-} from "../common";
+import { Container, GridCell, TextCell, } from "../common";
 
 import * as mixins from "codogo-utility-functions";
 
@@ -144,11 +140,11 @@ const Generic = props => {
 		<GenericContainer>
 			<Sidebar>
 				<SidebarInner>
-					{
-						imageUrl || true ? 
-							<SidebarImage src = { `http://res.cloudinary.com/codogo/image/fetch/h_500,c_fill,g_face,f_auto/https:${ imageUrl }` } /> :
-							null
-					}
+					{imageUrl || true ? (
+						<SidebarImage
+							src = { `http://res.cloudinary.com/codogo/image/fetch/h_500,c_fill,g_face,f_auto/https:${ imageUrl }` }
+						/>
+					) : null}
 
 					<GridCell>
 						<TextCell>
@@ -156,16 +152,14 @@ const Generic = props => {
 								<h3>{sectionLink.title}</h3>
 							</Link>
 
-							{
-								subsectionLinks.map(subsectionLink => (
-									<Link
-										to = { subsectionLink.to }
-										key = { subsectionLink.slug }
-									>
-										<p>{subsectionLink.title}</p>
-									</Link>
-								))
-							}
+							{subsectionLinks.map(subsectionLink => (
+								<Link
+									to = { subsectionLink.to }
+									key = { subsectionLink.slug }
+								>
+									<p>{subsectionLink.title}</p>
+								</Link>
+							))}
 
 							{serviceLinks.length > 0 ? (
 								<div>
