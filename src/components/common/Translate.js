@@ -16,7 +16,7 @@ const TranslateButton = styled.div`
 	color: white;
 	padding: 0.5em 1em;
 	border-radius: 3px;
-	
+
 	:hover {
 		opacity: 0.5;
 	}
@@ -37,11 +37,10 @@ const TranslateButton = styled.div`
 // --------------------------------------------------
 
 const Translate = () => (
-	<TranslateButton notLink >
+	<TranslateButton notLink>
 		Translate
-		
 		<div id = "google_translate_element" />
 	</TranslateButton>
-)
+);
 
 export default Translate;

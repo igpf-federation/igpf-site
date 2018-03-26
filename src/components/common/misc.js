@@ -12,13 +12,12 @@ import { objMap, } from "../../lib/util";
 
 export const GridCell = styled.div`
 	${ mixins.bpEach("padding", vars.dim.gutter.half) };
-	${ p => p.flex ? `flex: ${ p.flex };` : "" };
+	${ p => (p.flex ? `flex: ${ p.flex };` : "") };
 `;
 
-
 export const TextBox = styled.div`
-	${ p => p.bold ? "font-weight: bold;" : "" };
-	${ p => p.align ? `text-align: ${ p.align };` : "" };
+	${ p => (p.bold ? "font-weight: bold;" : "") };
+	${ p => (p.align ? `text-align: ${ p.align };` : "") };
 `;
 
 export const TextCell = props => (

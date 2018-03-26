@@ -30,7 +30,7 @@
     "velocity-animate": "^1.5.0"
   },
   "devDependencies": {
-    "codogo-scripts": "3.2.9",
+    "codogo-scripts": "^3.2.10",
     "contentful": "^5.0.5",
     "dotenv": "^4.0.0",
     "eslint": "^4.9.0",

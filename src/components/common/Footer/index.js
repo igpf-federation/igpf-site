@@ -8,9 +8,7 @@ import { withRouter, } from "react-router";
 import { compose, withState, withHandlers, withProps, } from "recompose";
 import { Icon, } from "../misc";
 
-import {
-	FunkyButton,
-} from "src/components/common";
+import { FunkyButton, } from "src/components/common";
 
 import { footer, } from "../../../data";
 

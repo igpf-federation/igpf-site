@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
-import {
-	Container,
-	GridCell,
-	TextCell,
-} from "src/components/common";
+import { Container, GridCell, TextCell, } from "src/components/common";
 
 import Translate from "src/components/common/Translate";
 
@@ -12,9 +8,7 @@ import * as mixins from "codogo-utility-functions";
 
 import Banner from "src/components/common/Banner";
 
-import {
-	siteSettings,
-} from "src/data";
+import { siteSettings, } from "src/data";
 
 // --------------------------------------------------
 
@@ -44,19 +38,27 @@ const Home = () => {
 		<div>
 			<Translate />
 
-			<Banner/>
+			<Banner />
 
 			<HomeContainer>
 				<Article>
 					<TextCell>
-						<div dangerouslySetInnerHTML = { { __html: siteSettings.homepageContentHTML, } } />
+						<div
+							dangerouslySetInnerHTML = { {
+								__html: siteSettings.homepageContentHTML,
+							} }
+						/>
 					</TextCell>
 				</Article>
 
 				<Sidebar>
 					<SidebarInner>
 						<GridCell>
-							<div dangerouslySetInnerHTML = { { __html: siteSettings.homepageSidebarHTML, } } />
+							<div
+								dangerouslySetInnerHTML = { {
+									__html: siteSettings.homepageSidebarHTML,
+								} }
+							/>
 						</GridCell>
 					</SidebarInner>
 				</Sidebar>
