@@ -23,7 +23,8 @@ const TranslateButton = styled.div`
 
 	position: fixed;
 	right: 1em;
-	bottom: 1em;
+	bottom: 4em;
+	z-index: 99;
 
 	${ mixins.bp.sm.max`display: none;` };
 
