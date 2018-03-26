@@ -47,17 +47,20 @@ const Header = props => (
 		backgroundColor = { { xs: vars.colors.gray, other: vars.colors.gray, } }
 		color = { { xs: vars.colors.primary, other: vars.colors.primary, } }
 		shadow
+		underlineColor = { vars.colors.primary }
 	>
-		{nav.map((route, i) => (
-			<NavLink
-				key = { route.title }
-				to = { route.link || route.path }
-				activeClassName = "active"
-				onClick = { props.close }
-			>
-				{route.title}
-			</NavLink>
-		))}
+		{
+			nav.map((route, i) => (
+				<NavLink
+					key = { route.title }
+					to = { route.link || route.path }
+					activeClassName = "active"
+					onClick = { props.close }
+				>
+					{ route.title }
+				</NavLink>
+			))
+		}
 	</Nav>
 );
 
