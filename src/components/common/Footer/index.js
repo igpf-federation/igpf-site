@@ -46,6 +46,7 @@ const FooterCredits = styled.div`
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	margin: 0.5em;
 	${ mixins.bp.sm.min`flex: 1;` }
 	${ mixins.xs`flex-grow: 1;` }
 	${ mixins.xs`flex-direction: column;` }
@@ -60,16 +61,28 @@ const FooterCredit = styled.div`
 const FooterLinks = styled.div`
 	display: flex;
 	flex-direction: row;
+	margin: 0.5em;
 	${ mixins.bp.sm.min`flex: 1;` }
 	${ mixins.xs`flex-grow: 1;` }
 `;
 
-const SearchWrapper = styled.div`
-	${ mixins.bp.sm.min`flex: 1;` }
-	${ mixins.xs`flex-grow: 1;` }
+const FooterLogoWrapper = styled.div`
+	flex: 6;
+	display: flex;
+	margin: 0.5em;
+`;
+
+const FooterLogo = styled.img`
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 `;
 
 // ---------------------------------
+
+const SearchWrapper = styled.div`
+	${ mixins.bp.sm.min`flex: 1;` }
+`;
 
 const SearchIcon = Icon;
 
@@ -122,6 +135,10 @@ const SearchBar = enhanceSearchBar(_SearchBar);
 
 const Footer = () => (
 	<FooterWrapper>
+		<FooterLogoWrapper>
+			<FooterLogo src = "/img/igpgroup-logo.png"/>
+		</FooterLogoWrapper>
+
 		<FooterLinks>
 			<Links links = { footer } />
 		</FooterLinks>
