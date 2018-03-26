@@ -31,7 +31,7 @@ const LogoImage = styled.img`
 	object-position: left;
 `;
 
-const Logo = props => (
+const Logo = () => (
 	<LogoWrapper to = "/">
 		<LogoImage src = { siteSettings.logo.fields.file.url } />
 	</LogoWrapper>

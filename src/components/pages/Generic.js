@@ -216,7 +216,7 @@ const Generic = props => {
 									src = {
 										person.picture.url
 											? person.picture.url
-											: "/img/profile-pic.png"
+											: null
 									}
 								/>
 
