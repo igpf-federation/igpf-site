@@ -2074,8 +2074,8 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
 codogo-nav@^1.0.6:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/codogo-nav/-/codogo-nav-1.0.11.tgz#fc5be949e5df6afd81895a83b66bd87b3746ed7f"
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/codogo-nav/-/codogo-nav-1.0.12.tgz#37f238e76114da95b51653d7746c91ad04163007"
   dependencies:
     codogo-utility-functions "^1.0.4"
     react "16.2.0"
