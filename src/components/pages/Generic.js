@@ -115,7 +115,6 @@ const Generic = props => {
 
 	const subsectionLinks = subsectionSlugs.map(
 		subsectionSlug => (
-			console.log("Slug", subsectionSlug),
 			{
 				to: `/${ sectionSlug }/${ subsectionSlug }`,
 				title: subsectionsMap[subsectionSlug].title,
@@ -142,7 +141,7 @@ const Generic = props => {
 				<SidebarInner>
 					{imageUrl || true ? (
 						<SidebarImage
-							src = { `http://res.cloudinary.com/codogo/image/fetch/h_500,c_fill,g_face,f_auto/https:${ imageUrl }` }
+							src = { `https://res.cloudinary.com/codogo/image/fetch/h_500,c_fill,g_face,f_auto/https:${ imageUrl }` }
 						/>
 					) : null}
 

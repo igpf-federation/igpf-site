@@ -26,7 +26,6 @@ const FooterWrapper = styled.footer`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	flex-wrap: wrap;
 
 	${ mixins.bpEither("height", vars.dim.footer.height) };
 	${ mixins.bpEither("padding", vars.dim.nav.margin) };
@@ -47,6 +46,7 @@ const FooterCredits = styled.div`
 	align-items: center;
 	justify-content: center;
 	margin: 0.5em;
+	font-size: 0.8em;
 	${ mixins.bp.sm.min`flex: 1;` }
 	${ mixins.xs`flex-grow: 1;` }
 	${ mixins.xs`flex-direction: column;` }
@@ -67,7 +67,7 @@ const FooterLinks = styled.div`
 `;
 
 const FooterLogoWrapper = styled.div`
-	flex: 6;
+	flex: 2;
 	display: flex;
 	margin: 0.5em;
 `;
@@ -93,7 +93,7 @@ const _SearchBar = styled.input`
 	margin-left: 0.5em;
 	background-color: transparent;
 	border: 0;
-	width: 5em;
+	width: 10em;
 	transition-duration: 0.3s;
 	border-radius: 3px;
 
@@ -103,7 +103,7 @@ const _SearchBar = styled.input`
 
 	&:focus {
 		outline: 0;
-		width: 8em;
+		width: 15em;
 	}
 
 	&::placeholder {

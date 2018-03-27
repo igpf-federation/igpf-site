@@ -91,8 +91,8 @@ export const dimensions = {
 	},
 	footer: {
 		height: {
-			xs: "250px",
-			other: "180px",
+			xs: "300px",
+			other: "250px",
 		},
 	},
 	gutter: {

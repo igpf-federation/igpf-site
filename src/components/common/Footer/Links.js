@@ -14,27 +14,29 @@ const LinksWrapper = styled.div`
 	justify-content: center;
 `;
 
+const Links = styled.div`
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	${ mixins.xs`flex-direction: column;` }
+`;
+
 const Link = styled(NavLink)`
 	border-bottom: 3px solid transparent;
 	border-top: 1px solid transparent;
 	color: ${ R.path([ "theme", "logo1", ]) };
-	display: inline-block;
+	display: flex;
+	flex: 1;
 	font-size: 0.9em;
-	padding: 0 ${ mixins.num(vars.dim.nav.margin.other) * 0.5 }px;
 	font-weight: lighter;
+	padding: 0 ${ mixins.num(vars.dim.nav.margin.other) * 0.5 }px;
+	white-space: nowrap;
 
 	&.active {
 		font-weight: bold;
 	}
-`;
-
-const Links = styled.div`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-
-	${ mixins.xs`flex-direction: column;` }
 `;
 
 
