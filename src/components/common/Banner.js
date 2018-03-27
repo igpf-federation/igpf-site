@@ -14,7 +14,7 @@ class DemoCarousel extends Component {
 				{siteSettings.carousel.map(item => (
 					<div>
 						<img
-							src = { `http://res.cloudinary.com/codogo/image/fetch/h_750,w_1800,c_fill,g_face,f_auto/https:${ item.fields.file.url }` }
+							src = { `https://res.cloudinary.com/codogo/image/fetch/h_750,w_1800,c_fill,g_face,f_auto/https:${ item.fields.file.url }` }
 							alt = { item.fields.description }
 						/>
 

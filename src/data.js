@@ -23,8 +23,6 @@ const makeMapUsingSlugs = list =>
 const _siteSettings = rawdata.items
 	.filter(item => item.sys.contentType.sys.id === "siteSettings")
 	.map(item => {
-		console.log(item);
-
 		return {
 			...item.fields,
 			homepageContentHTML: marked(item.fields.homepageContent),
@@ -102,8 +100,6 @@ const lists = R.map(contentType => {
 	service: "service",
 	job: "job",
 });
-
-console.log("lists", lists);
 
 const sectionsMap = makeMapUsingSlugs(sectionsList);
 const maps = R.map(makeMapUsingSlugs)(lists);

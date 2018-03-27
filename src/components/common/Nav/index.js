@@ -45,7 +45,7 @@ const Header = props => (
 		fontSize = { { xs: "1.1em", other: "0.9em", } }
 		textTransform = { { xs: "capitalize", other: "capitalize", } }
 		backgroundColor = { { xs: vars.colors.gray, other: vars.colors.gray, } }
-		color = { { xs: vars.colors.primary, other: vars.colors.primary, } }
+		highlightColor = { { xs: vars.colors.primary, other: vars.colors.primary, } }
 		shadow
 		underlineColor = { vars.colors.primary }
 	>

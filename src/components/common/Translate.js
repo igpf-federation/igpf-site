@@ -7,26 +7,24 @@ import * as mixins from "codogo-utility-functions";
 // --------------------------------------------------
 
 const TranslateButton = styled.div`
-	height: auto;
-	border: 0;
-	border-top: 2px solid transparent;
-	position: relative;
-	font-size: 1.2em;
 	background-color: ${ vars.colors.primary };
-	color: white;
-	padding: 0.5em 1em;
 	border-radius: 3px;
+	border-top: 2px solid transparent;
+	border: 0;
+	bottom: 1em;
+	color: white;
+	font-size: 1.2em;
+	height: auto;
+	padding: 0.5em 1em;
+	position: fixed;
+	right: 1em;
+	z-index: 99;
+
+	${ mixins.bp.sm.max`display: none;` };
 
 	:hover {
 		opacity: 0.5;
 	}
-
-	position: fixed;
-	right: 1em;
-	bottom: 1em;
-	z-index: 99;
-
-	${ mixins.bp.sm.max`display: none;` };
 
 	& > div {
 		${ mixins.contained() };
@@ -38,8 +36,9 @@ const TranslateButton = styled.div`
 // --------------------------------------------------
 
 const Translate = () => (
-	<TranslateButton notLink>
+	<TranslateButton>
 		Translate
+
 		<div id = "google_translate_element" />
 	</TranslateButton>
 );
