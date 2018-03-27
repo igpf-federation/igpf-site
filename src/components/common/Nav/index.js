@@ -42,7 +42,7 @@ const Logo = () => (
 const Header = props => (
 	<Nav
 		logo = { <Logo /> }
-		fontSize = { { xs: "1.1em", other: "0.8em", } }
+		fontSize = { { xs: "1.1em", other: "0.9em", } }
 		textTransform = { { xs: "capitalize", other: "capitalize", } }
 		backgroundColor = { { xs: vars.colors.gray, other: vars.colors.gray, } }
 		color = { { xs: vars.colors.primary, other: vars.colors.primary, } }
