@@ -38,7 +38,7 @@ const Home = () => {
 		<div>
 			<Translate />
 
-			<Banner />
+			{ siteSettings.carousel && <Banner /> }
 
 			<HomeContainer>
 				<Article>
