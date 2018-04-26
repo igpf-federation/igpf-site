@@ -46,21 +46,19 @@ const Header = props => (
 		backgroundColor = { { xs: vars.colors.gray, other: vars.colors.gray, } }
 		highlightColor = { { xs: vars.colors.primary, other: vars.colors.primary, } }
 		shadow
+		fixed
 		underlineColor = { vars.colors.primary }
-	>
-		{
-			nav.map((route, i) => (
-				<NavLink
-					key = { route.title }
-					to = { route.link || route.path }
-					activeClassName = "active"
-					onClick = { props.close }
-				>
-					{ route.title }
-				</NavLink>
-			))
+		links = {
+			nav.map((route, i) => {
+				return {
+					as: NavLink,
+					to: route.link || route.path,
+					onClick: props.close,
+					content: route.title, 
+				}
+			})
 		}
-	</Nav>
+	/>
 );
 
 export default Header;
