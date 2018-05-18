@@ -18,7 +18,7 @@ class DemoCarousel extends Component {
 							alt = { item.fields.description }
 						/>
 
-						<p className = "legend">{item.fields.description}</p>
+						{ item.fields.description && <p className = "legend">{item.fields.description}</p> }
 					</div>
 				))}
 			</Carousel>

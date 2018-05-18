@@ -1,13 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-
 import { Link, NavLink, } from "react-router-dom";
+import { nav, siteSettings, } from "src/data";
 import { Nav, } from "codogo-nav";
-
 import * as mixins from "codogo-utility-functions";
 import * as vars from "../../style/vars";
-
-import { nav, siteSettings, } from "src/data";
+import React from "react";
+import styled from "styled-components";
 
 // ---------------------------------
 
@@ -49,9 +46,9 @@ const Header = props => (
 		fixed
 		underlineColor = { vars.colors.primary }
 		links = {
-			nav.map((route, i) => {
+			nav.map((route) => {
 				return {
-					as: NavLink,
+					as: "nav-link",
 					to: route.link || route.path,
 					onClick: props.close,
 					content: route.title, 
