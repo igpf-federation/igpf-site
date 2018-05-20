@@ -41,7 +41,7 @@
   "scripts": {
     "start": "codogo-scripts start",
     "build": "codogo-scripts pack",
-    "static": "yarn data && yarn build && react-snapshot && yarn sitemap",
+    "static": "npm run data && npm run build && react-snapshot && npm run sitemap",
     "data": "node scripts/static/makeDataFile",
     "lint": "codogo-scripts format",
     "format": "codogo-scripts format",
