@@ -52,7 +52,7 @@ const Header = props => (
 					to: route.link || route.path,
 					onClick: props.close,
 					content: route.title, 
-				}
+				};
 			})
 		}
 	/>

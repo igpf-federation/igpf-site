@@ -30,13 +30,13 @@ const FooterWrapper = styled.footer`
 	${ mixins.bpEither("height", vars.dim.footer.height) };
 	${ mixins.bpEither("padding", vars.dim.nav.margin) };
 	${ 
-		({ theme: { footer, }, }) => `
+	({ theme: { footer, }, }) => `
 			background-color: ${ footer };
 			${ footer && 
 				footer !== vars.colors.footer
-				? ""
-				: `border-top: 1px solid ${ mixins.transparent(0.2) };`
-			}		
+		? ""
+		: `border-top: 1px solid ${ mixins.transparent(0.2) };`
+}		
 	` };
 `;
 
