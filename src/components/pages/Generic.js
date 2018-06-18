@@ -18,19 +18,6 @@ import {
 	allSectionsList,
 } from "src/data";
 
-console.log({
-	sectionsList,
-	sectionsMap,
-	subsectionsList,
-	subsectionsMap,
-	servicesList,
-	servicesMap,
-	jobsList,
-	jobsMap,
-	allSectionsMap,
-	allSectionsList,
-});
-
 // --------------------------------------------------
 
 const GenericContainer = styled(Container)`

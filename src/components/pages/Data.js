@@ -9,6 +9,5 @@ export default data => () => (
 		} }
 	>
 		{printObj(data)}
-		{console.log(data)}
 	</div>
 );
