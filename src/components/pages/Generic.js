@@ -1,22 +1,17 @@
-import styled from "styled-components";
-import { Link, } from "react-router-dom";
-
-import { Container, GridCell, TextCell, } from "../common";
-
 import * as mixins from "codogo-utility-functions";
-
+import { Container, GridCell, TextCell, } from "../common";
+import { Link, } from "react-router-dom";
 import {
-	sectionsList,
 	sectionsMap,
-	subsectionsList,
 	subsectionsMap,
-	servicesList,
 	servicesMap,
-	jobsList,
 	jobsMap,
 	allSectionsMap,
-	allSectionsList,
 } from "src/data";
+
+import styled from "styled-components";
+import slugify from "slugify";
+import PropTypes from "prop-types";
 
 // --------------------------------------------------
 
@@ -60,7 +55,11 @@ const PeopleWrapper = styled.div`
 `;
 
 const PersonWrapper = styled(GridCell)`
-	width: ${ 100 / 4 }%;
+	width: ${ 100 / 3 }%;
+`;
+
+const PersonContent = styled.div`
+	padding: 0.5em;
 `;
 
 const PersonPicture = styled.div`
@@ -81,7 +80,6 @@ const Generic = props => {
 		slug
 	];
 
-	// sidebar
 	const sectionSlug = subsection || service || job ? parent : slug;
 
 	const subsectionSlugs = sectionsMap[sectionSlug]
@@ -126,11 +124,13 @@ const Generic = props => {
 		<GenericContainer>
 			<Sidebar>
 				<SidebarInner>
-					{imageUrl || true ? (
-						<SidebarImage
-							src = { `https://res.cloudinary.com/codogo/image/fetch/h_500,c_fill,g_face,f_auto/https:${ imageUrl }` }
-						/>
-					) : null}
+					{ 
+						(imageUrl || true) && (
+							<SidebarImage
+								src = { `https://res.cloudinary.com/codogo/image/fetch/h_500,c_fill,g_face,f_auto/https:${ imageUrl }` }
+							/>
+						)
+					}
 
 					<GridCell>
 						<TextCell>
@@ -147,7 +147,7 @@ const Generic = props => {
 								</Link>
 							))}
 
-							{serviceLinks.length > 0 ? (
+							{serviceLinks.length > 0 && (
 								<div>
 									<h4>Services</h4>
 
@@ -160,9 +160,9 @@ const Generic = props => {
 										</Link>
 									))}
 								</div>
-							) : null}
+							) }
 
-							{jobLinks.length > 0 ? (
+							{jobLinks.length > 0 && (
 								<div>
 									<h4>Jobs</h4>
 
@@ -175,7 +175,7 @@ const Generic = props => {
 										</Link>
 									))}
 								</div>
-							) : null}
+							)}
 						</TextCell>
 					</GridCell>
 				</SidebarInner>
@@ -194,32 +194,42 @@ const Generic = props => {
 					/>
 				</TextCell>
 
-				{people ? (
+				{people && (
 					<PeopleWrapper>
 						{people.map(person => (
-							<PersonWrapper>
+							<PersonWrapper
+								key = { slugify(person.name) }
+							>
 								<PersonPicture
 									src = {
-										person.picture.url
-											? person.picture.url
-											: null
+										person.image && person.image.url
 									}
 								/>
 
-								<h3>{person.name}</h3>
+								<PersonContent>
+									<h3>{ person.name }</h3>
 
-								<p>
-									<strong>{person.role}</strong>
-								</p>
+									<p>
+										<strong>{ person.role }</strong>
+									</p>
 
-								<p>{person.email}</p>
+									<p>{ person.email }</p>
+								</PersonContent>
 							</PersonWrapper>
 						))}
 					</PeopleWrapper>
-				) : null}
+				)}
 			</Article>
 		</GenericContainer>
 	);
+};
+
+Generic.propTypes = {
+	subsection: PropTypes.any,
+	service: PropTypes.any,
+	job: PropTypes.any,
+	slug: PropTypes.any,
+	parent: PropTypes.any,
 };
 
 export default Generic;
