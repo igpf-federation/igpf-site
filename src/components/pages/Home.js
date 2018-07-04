@@ -1,14 +1,10 @@
-import styled from "styled-components";
-
 import { Container, GridCell, TextCell, } from "src/components/common";
-
-import Translate from "src/components/common/Translate";
-
 import * as mixins from "codogo-utility-functions";
+import { siteSettings, } from "src/data";
 
 import Banner from "src/components/common/Banner";
-
-import { siteSettings, } from "src/data";
+import styled from "styled-components";
+import Translate from "src/components/common/Translate";
 
 // --------------------------------------------------
 
