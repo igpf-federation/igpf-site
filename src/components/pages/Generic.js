@@ -63,7 +63,7 @@ const PersonContent = styled.div`
 `;
 
 const PersonPicture = styled.div`
-	padding-top: 150%;
+	padding-top: 130%;
 	background-color: #bbb;
 	background-image: url(${ R.prop("src") });
 	background-size: cover;
