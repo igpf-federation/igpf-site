@@ -6,6 +6,7 @@ import {
 	TextCell,
 } from "../common";
 
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 // --------------------------------------------------
@@ -59,5 +60,13 @@ const Search = ( { match: { params: { query, }, }, }, ) => (
 		}
 	</Container>
 );
+
+Search.propTypes = {
+	match: PropTypes.shape({
+		params: PropTypes.shape({
+			query: PropTypes.any,
+		}),
+	}),
+};
 
 export default Search;

@@ -225,11 +225,11 @@ const Generic = props => {
 };
 
 Generic.propTypes = {
-	subsection: PropTypes.any,
-	service: PropTypes.any,
 	job: PropTypes.any,
-	slug: PropTypes.any,
 	parent: PropTypes.any,
+	service: PropTypes.any,
+	slug: PropTypes.any,
+	subsection: PropTypes.any,
 };
 
 export default Generic;
