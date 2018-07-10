@@ -13,6 +13,7 @@
     "marked": "^0.3.19",
     "masonry-layout": "^4.2.0",
     "moment": "^2.18.1",
+    "pre-commit": "^1.2.2",
     "ramda": "^0.24.1",
     "react": "^15.6.1",
     "react-addons-transition-group": "^15.6.0",
@@ -40,12 +41,15 @@
     "prop-types": "^15.6.2",
     "sitemap-static": "^0.4.2"
   },
+  "pre-commit": [
+    "format"
+  ],
   "scripts": {
     "start": "mcclowes-scripts start",
     "build": "mcclowes-scripts pack",
     "static": "npm run data && npm run build && react-snapshot && npm run sitemap",
     "data": "node scripts/static/makeDataFile",
-    "lint": "mcclowes-scripts format",
+    "format": "mcclowes-scripts format",
     "format": "mcclowes-scripts format",
     "sitemap": "sitemap-static --prefix=http://www.islingtongp.org.uk/ build | sed -e \"s/\\.html//g\" > build/sitemap.xml"
   }
