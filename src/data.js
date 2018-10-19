@@ -138,7 +138,7 @@ const nav = rawdata.items
 	.fields.links.map(shapeLink);
 
 const footer = rawdata.items
-	.filter(item => item.sys.contentType.sys.id === "footer")[0] //.filter(item => item.type === "footer")
+	.filter(item => item.sys.contentType.sys.id === "nav")[1] //.filter(item => item.type === "footer")
 	.fields.links.map(shapeLink);
 
 export {
