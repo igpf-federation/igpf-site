@@ -57,28 +57,29 @@ export default () => injectGlobal`
 	html {
 		min-height: 100%;
 		position: relative;
-	}
-
-	html.noScroll {
-		${ mixins.bp.md.min`
-			margin-right: ${ vars.dim.scrollbar };
-			background-color: ${ vars.scrollbar.color.track };
-		` }		
-	}
+    
+    &.noScroll {
+  		${ mixins.bp.md.min`
+  			margin-right: ${ vars.dim.scrollbar };
+  			background-color: ${ vars.scrollbar.color.track };
+  		` }		
+  	}
+  }
 
 	body {
 		background: white;
 		font-family: Frutiger, Archivo, sans-serif;
-		${ mixins.bpEach("font-size", vars.font.size) }
 		color: ${ vars.colors.text };
 		margin: 0;
-		${ mixins.bpEither("margin-bottom", vars.dim.footer.height) }
 		overflow-y: scroll;
 		line-height: 1.5;
-	}
 
-	body.noScroll {
-		overflow-y: hidden;
+    ${ mixins.bpEither("margin-bottom", vars.dim.footer.height) }
+    ${ mixins.bpEach("font-size", vars.font.size) }
+
+    &.noScroll {
+		  overflow-y: hidden;
+    }
 	}
 
   a {
@@ -100,7 +101,9 @@ export default () => injectGlobal`
     }
   }
 
-  p {
+  p ,
+  ul > li,
+  ol > li {
     a {
       &,
       &:hover,
