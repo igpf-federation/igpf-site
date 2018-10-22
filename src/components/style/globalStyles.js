@@ -81,20 +81,40 @@ export default () => injectGlobal`
 		overflow-y: hidden;
 	}
 
-	a,
-	a:hover,
-	a:visited,
-	a:active {
-		text-decoration: none;
-		color: ${ vars.colors.text };
-	}
+  a {
+  	&,
+  	&:hover,
+  	&:visited,
+  	&:active {
+  		text-decoration: none;
+  		color: ${ vars.colors.text };
+  	}
 
-	a.white-link,
-	a.white-link:hover,
-	a.white-link:visited,
-	a.white-link:active {
-		color: white;
-	}
+  	&.white-link {
+      &,
+    	&:hover,
+    	&:visited,
+    	&:active {
+    		color: white;
+    	}
+    }
+  }
+
+  p {
+    a {
+      &,
+      &:hover,
+      &:visited,
+      &:active {
+        text-decoration: underline;
+        color: ${ vars.colors.link };
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
 
 	p, h1, h2, h3, h4 {
 		${ mixins.bpEach(
