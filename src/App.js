@@ -25,7 +25,7 @@ const routes = routesConfig.map(
 		const render = props => <Component { ...props } { ...rest } />;
 
 		return (
-			<Route key = { `${path}-${i}` } path = { path } exact = { exact } render = { render } />
+			<Route key = { `${ path }-${ i }` } path = { path } exact = { exact } render = { render } />
 		);
 	},
 );
