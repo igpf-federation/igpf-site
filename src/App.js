@@ -1,4 +1,4 @@
-import { ThemeProvider, } from "styled-components";
+import { ThemeProvider, } from "styled-componentonents";
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Helmet from "react-helmet";
 
@@ -21,11 +21,11 @@ const defaultColors = {
 };
 
 const routes = routesConfig.map(
-	({ component: Comp, path, exact, ...rest }, i) => {
-		const render = props => <Comp { ...props } { ...rest } />;
+	({ component: Component, path, exact, ...rest }, i) => {
+		const render = props => <Component { ...props } { ...rest } />;
 
 		return (
-			<Route key = { path + i } path = { path } exact = { exact } render = { render } />
+			<Route key = { `${path}-${i}` } path = { path } exact = { exact } render = { render } />
 		);
 	},
 );
