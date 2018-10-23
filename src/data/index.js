@@ -1,7 +1,7 @@
 import _slugify from "slugify";
 import marked from "marked";
 
-import rawdata from "./rawdata";
+import rawdata from "src/data/rawdata";
 
 const slugify = x =>
 	(x

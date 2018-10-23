@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import * as mixins from "codogo-utility-functions";
+import * as vars from "src/styles/vars";
 import { NavLink, } from "react-router-dom";
 
-import * as mixins from "codogo-utility-functions";
-import * as vars from "../../style/vars";
+import React from "react";
+import styled from "styled-components";
 
 // --------------------------------------------------
 

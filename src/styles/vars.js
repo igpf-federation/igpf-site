@@ -1,4 +1,4 @@
-import { objMap, } from "../../lib/util";
+import { objMap, } from "src/lib/util";
 
 // --------------------------------------------------
 
