@@ -1,10 +1,10 @@
+import * as data from "src/data";
+
+import Data from "./components/pages/Data";
 import Generic from "./components/pages/Generic";
 import Home from "./components/pages/Home";
-import Data from "./components/pages/Data";
 import NotFound from "./components/pages/404";
 import Search from "./components/pages/Search";
-
-import * as data from "src/data";
 
 // --------------------------------------------------
 

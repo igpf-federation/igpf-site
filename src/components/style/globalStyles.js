@@ -1,9 +1,8 @@
+import * as mixins from "codogo-utility-functions";
+import * as vars from "./vars";
 import { injectGlobal, } from "styled-components";
 
-import * as vars from "./vars";
-import * as mixins from "codogo-utility-functions";
-
-// Import this properly
+// todo: Import this properly
 //import carouselStyles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 // --------------------------------------------------
@@ -136,22 +135,6 @@ export default () => injectGlobal`
 	img {
 		vertical-align: bottom;
 	}
-
-	// ::-webkit-scrollbar-track {
-	// 	background-color: ${ vars.scrollbar.color.track };
-	// }
-
-	// ::-webkit-scrollbar	{
-	// 	width: ${ vars.dim.scrollbar };
-	// 	height: ${ vars.dim.scrollbar };
-	// 	background-color: #F5F5F5;
-	// }
-
-	// ::-webkit-scrollbar-thumb {
-	// 	border-radius: 10px;
-	// 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	// 	background-color: ${ vars.scrollbar.color.thumb };
-	// }
 
 	.fade-enter {
 	  opacity: 0;

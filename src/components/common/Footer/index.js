@@ -1,18 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-
 import * as mixins from "codogo-utility-functions";
 import * as vars from "../../style/vars";
-
-import { withRouter, } from "react-router";
-import { compose, withState, withHandlers, withProps, } from "recompose";
-import { Icon, } from "../misc";
-
 import { FunkyButton, } from "src/components/common";
-
+import { Icon, } from "../misc";
+import { compose, withState, withHandlers, withProps, } from "recompose";
 import { footer, } from "../../../data";
+import { withRouter, } from "react-router";
 
 import Links from "./Links";
+import React from "react";
+import styled from "styled-components";
 
 // --------------------------------------------------
 
