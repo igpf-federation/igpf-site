@@ -5,7 +5,7 @@ import { Link, } from "react-router-dom";
 import MQ from "react-responsive";
 
 import * as mixins from "codogo-utility-functions";
-import * as vars from "../style/vars";
+import * as vars from "../../styles/vars";
 import { objMap, } from "../../lib/util";
 
 // --------------------------------------------------

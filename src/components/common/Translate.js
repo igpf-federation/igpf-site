@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import * as vars from "src/components/style/vars";
+import * as vars from "src/styles/vars";
 
 import * as mixins from "codogo-utility-functions";
 

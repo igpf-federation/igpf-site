@@ -2,7 +2,7 @@ const jsonfile = require("jsonfile");
 
 // --------------------------------------------------
  
-const file = "./src/rawdata.json";
+const file = "./src/data/rawdata.json";
 
 // --------------------------------------------------
 
