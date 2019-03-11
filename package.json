@@ -34,7 +34,7 @@
     "contentful": "^6.1.1",
     "dotenv": "^5.0.1",
     "eslint": "^4.9.0",
-    "mcclowes-scripts": "^0.3.6",
+    "mcclowes-scripts": "^0.8.0",
     "pre-commit": "^1.2.2",
     "prettier": "^1.16.4",
     "process-promises": "^1.0.0",
