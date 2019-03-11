@@ -1,5 +1,5 @@
 import * as mixins from "codogo-utility-functions";
-import * as vars from "src/styles/vars";
+import * as vars from "./vars";
 import { createGlobalStyle, } from "styled-components";
 
 // todo: Import this properly

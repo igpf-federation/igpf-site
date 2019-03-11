@@ -1,10 +1,11 @@
-import { Container, GridCell, TextCell, } from "src/components/common";
+import React from 'react';
+import { Container, GridCell, TextCell, } from "../../components/common";
 import * as mixins from "codogo-utility-functions";
-import { siteSettings, } from "src/data";
+import { siteSettings, } from "../../data";
 
-import Banner from "src/components/common/Banner";
+import Banner from "../../components/common/Banner";
 import styled from "styled-components";
-import Translate from "src/components/common/Translate";
+import Translate from "../../components/common/Translate";
 
 // --------------------------------------------------
 
