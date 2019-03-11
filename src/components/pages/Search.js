@@ -1,4 +1,5 @@
-import { allSectionsList, } from "src/data";
+import React from 'react';
+import { allSectionsList, } from "../../data";
 import { Link, } from "react-router-dom";
 import {
 	Container,

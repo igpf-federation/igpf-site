@@ -1,13 +1,14 @@
-import * as vars from "src/styles/vars";
+import * as vars from "./styles/vars";
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import { ThemeProvider, } from "styled-components";
 
-import Footer from "src/components/common/Footer";
+import React from 'react';
+import Footer from "./components/common/Footer";
 import Helmet from "react-helmet";
-import Main from "src/components/common/Main";
-import Nav from "src/components/common/Nav";
-import ScrollToTop from "src/components/common/ScrollToTop";
-import GlobalStyle from "src/styles/globalStyles";
+import Main from "./components/common/Main";
+import Nav from "./components/common/Nav";
+import ScrollToTop from "./components/common/ScrollToTop";
+import GlobalStyle from "./styles/globalStyles";
 import routesConfig from "./routesConfig";
 
 // --------------------------------------------------
