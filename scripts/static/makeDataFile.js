@@ -1,1 +1,1 @@
-require("./dataFile").default();
+require('./dataFile').default();

@@ -1,6 +1,6 @@
-import * as mixins from "codogo-utility-functions";
-import * as vars from "./vars";
-import { createGlobalStyle, } from "styled-components";
+import * as mixins from 'codogo-utility-functions';
+import * as vars from './vars';
+import { createGlobalStyle } from 'styled-components';
 
 // todo: Import this properly
 //import carouselStyles from 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -58,23 +58,23 @@ export default createGlobalStyle`
 		position: relative;
     
     &.noScroll {
-  		${ mixins.bp.md.min`
-  			margin-right: ${ vars.dim.scrollbar };
-  			background-color: ${ vars.scrollbar.color.track };
-  		` }		
+  		${mixins.bp.md.min`
+  			margin-right: ${vars.dim.scrollbar};
+  			background-color: ${vars.scrollbar.color.track};
+  		`}		
   	}
   }
 
 	body {
 		background: white;
 		font-family: Frutiger, Archivo, sans-serif;
-		color: ${ vars.colors.text };
+		color: ${vars.colors.text};
 		margin: 0;
 		overflow-y: scroll;
 		line-height: 1.5;
 
-    ${ mixins.bpEither("margin-bottom", vars.dim.footer.height) }
-    ${ mixins.bpEach("font-size", vars.font.size) }
+    ${mixins.bpEither('margin-bottom', vars.dim.footer.height)}
+    ${mixins.bpEach('font-size', vars.font.size)}
 
     &.noScroll {
 		  overflow-y: hidden;
@@ -87,7 +87,7 @@ export default createGlobalStyle`
   	&:visited,
   	&:active {
   		text-decoration: none;
-  		color: ${ vars.colors.text };
+  		color: ${vars.colors.text};
   	}
 
   	&.white-link {
@@ -109,7 +109,7 @@ export default createGlobalStyle`
       &:visited,
       &:active {
         text-decoration: underline;
-        color: ${ vars.colors.link };
+        color: ${vars.colors.link};
       }
 
       &:hover {
@@ -119,10 +119,10 @@ export default createGlobalStyle`
   }
 
 	p, h1, h2, h3, h4 {
-		${ mixins.bpEach(
-  		"margin",
-  		mixins.objectMap(vars.font.size, (key, val) => `0 0 ${ val } 0`),
-  	) };
+		${mixins.bpEach(
+      'margin',
+      mixins.objectMap(vars.font.size, (key, val) => `0 0 ${val} 0`)
+    )};
 	}
 
   ul,

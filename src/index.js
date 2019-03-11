@@ -1,15 +1,15 @@
-import { render, } from "react-snapshot";
+import { render } from 'react-snapshot';
 
-import App from "./App";
-import React from "react";
+import App from './App';
+import React from 'react';
 
-render(<App />, document.getElementById("root"));
+render(<App />, document.getElementById('root'));
 
 // Unregister service workers
 navigator &&
-navigator.serviceWorker &&
-navigator.serviceWorker.getRegistrations().then(registrations => {
-	registrations.forEach(reg => {
-		reg.unregister();
-	});
-});
+  navigator.serviceWorker &&
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    registrations.forEach(reg => {
+      reg.unregister();
+    });
+  });
