@@ -1,9 +1,9 @@
 import * as mixins from "codogo-utility-functions";
-import * as vars from "src/styles/vars";
-import { FunkyButton, } from "src/components/common";
+import * as vars from "../../../styles/vars";
+import { FunkyButton, } from "../../../components/common";
 import { Icon, } from "../misc";
 import { compose, withState, withHandlers, withProps, } from "recompose";
-import { footer, } from "src/data";
+import { footer, } from "../../../data";
 import { withRouter, } from "react-router";
 
 import Links from "./Links";

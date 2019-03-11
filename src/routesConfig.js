@@ -1,4 +1,4 @@
-import * as data from "src/data";
+import * as data from "./data";
 
 import Data from "./components/pages/Data";
 import Generic from "./components/pages/Generic";

@@ -1,6 +1,6 @@
 import React, { Component, } from "react";
 import { Carousel, } from "react-responsive-carousel";
-import { siteSettings, } from "src/data";
+import { siteSettings, } from "../../data";
 
 import styled from "styled-components";
 

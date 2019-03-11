@@ -1,4 +1,5 @@
-import { printObj, } from "src/lib/util";
+import React from 'react';
+import { printObj, } from "../../lib/util";
 
 export default data => () => (
 	<div
