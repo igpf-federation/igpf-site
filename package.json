@@ -48,7 +48,7 @@
     "build": "react-scripts build",
     "static": "npm run data && npm run build && react-snapshot && npm run sitemap",
     "data": "node scripts/static/makeDataFile",
-    "format": "prettier --single-quote --trailing-comma all --write '**/*.js'",
+    "format": "prettier --single-quote --trailing-comma=all --jsx-bracket-same-line=false --write '**/*.js'",
     "sitemap": "sitemap-static --prefix=http://www.islingtongp.org/ build | sed -e \"s/\\.html//g\" > build/sitemap.xml"
   },
   "browserslist": [
