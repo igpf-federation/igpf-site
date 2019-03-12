@@ -123,10 +123,12 @@ export const dimensions = {
     },
   },
 };
+
 dimensions.gutter.container = {
   ...dimensions.gutter.full,
   xs: dimensions.gutter.full.xs,
 };
+
 export const dim = dimensions;
 
 export const imageViewerFadeDuration = 200;
