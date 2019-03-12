@@ -40,6 +40,9 @@
     "react-snapshot": "^1.2.0",
     "sitemap-static": "^0.4.2"
   },
+  "pre-commit": [
+    "format"
+  ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -1,13 +1,13 @@
 import * as mixins from 'codogo-utility-functions';
 import * as vars from './vars';
-import { createGlobalStyle } from 'styled-components';
+import { injectGlobal } from 'styled-components';
 
 // todo: Import this properly
 //import carouselStyles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 // --------------------------------------------------
 
-export default createGlobalStyle`
+export default injectGlobal`
 	@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
 	@import url('https://fonts.googleapis.com/css?family=Raleway:400,600');
 	@import url('https://fonts.googleapis.com/css?family=IM+Fell+English:400i');
