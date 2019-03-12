@@ -1,7 +1,6 @@
 import * as mixins from 'codogo-utility-functions';
 import * as vars from './vars';
 
-
 // todo: Import this properly
 //import carouselStyles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -433,4 +432,4 @@ const globalStyles = `
   }
 `;
 
-export default globalStyles
+export default globalStyles;

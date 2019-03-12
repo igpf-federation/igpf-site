@@ -14,7 +14,7 @@ import { injectGlobal } from 'styled-components';
 
 // --------------------------------------------------
 
-injectGlobal`${globalStyles}`
+injectGlobal`${globalStyles}`;
 
 const defaultColors = {
   ...vars.colors,
@@ -64,4 +64,4 @@ const App = () => (
   </Router>
 );
 
-export default App
+export default App;
