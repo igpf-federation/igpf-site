@@ -1,6 +1,6 @@
 import * as mixins from 'codogo-utility-functions';
 import * as vars from '../../../styles/vars';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import { nav, siteSettings } from '../../../data';
 import { Nav } from 'codogo-nav';
 

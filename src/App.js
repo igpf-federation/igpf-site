@@ -1,17 +1,20 @@
 import * as vars from './styles/vars';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-
-import React from 'react';
 import Footer from './components/common/Footer';
+import globalStyles from './styles/globalStyles';
 import Helmet from 'react-helmet';
 import Main from './components/common/Main';
 import Nav from './components/common/Nav';
+import React from 'react';
 import ScrollToTop from './components/common/ScrollToTop';
-import GlobalStyle from './styles/globalStyles';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import routesConfig from './routesConfig';
 
+import { injectGlobal } from 'styled-components';
+
 // --------------------------------------------------
+
+injectGlobal`${globalStyles}`
 
 const defaultColors = {
   ...vars.colors,
@@ -27,13 +30,11 @@ const routes = routesConfig.map(
   },
 );
 
-export default () => (
+const App = () => (
   <Router>
     <ScrollToTop>
       <ThemeProvider theme={defaultColors}>
         <div>
-          <GlobalStyle />
-
           <Helmet>
             <meta charSet="utf-8" />
 
@@ -62,3 +63,5 @@ export default () => (
     </ScrollToTop>
   </Router>
 );
+
+export default App
