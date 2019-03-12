@@ -122,6 +122,7 @@ const globalStyles = `
       'margin',
       mixins.objectMap(vars.font.size, (key, val) => `0 0 ${val} 0`),
     )};
+    margin-bottom: 0.5rem;
 	}
 
   ul,
@@ -134,6 +135,12 @@ const globalStyles = `
 	img {
 		vertical-align: bottom;
 	}
+
+  p {
+    img {
+      max-width: 100%;
+    }
+  }
 
 	.fade-enter {
 	  opacity: 0;

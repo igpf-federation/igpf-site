@@ -13,5 +13,6 @@ import styled from 'styled-components';
 
 export default styled.div`
   ${mixins.bpEither('margin-top', vars.dim.nav.height)};
+  ${mixins.bpEither('margin-bottom', vars.dim.footer.height)};
   background-color: ${R.path(['theme', 'body'])};
 `;
