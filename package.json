@@ -49,7 +49,7 @@
     "static": "npm run data && npm run build && react-snapshot && npm run sitemap",
     "data": "node scripts/static/makeDataFile",
     "format": "prettier --single-quote --trailing-comma=all --jsx-bracket-same-line=false --write '**/*.js'",
-    "sitemap": "sitemap-static --prefix=http://www.islingtongp.org/ build | sed -e \"s/\\.html//g\" > build/sitemap.xml"
+    "sitemap": "sitemap-static --prefix=https://www.islingtongp.org/ build | sed -e \"s/\\.html//g\" > build/sitemap.xml"
   },
   "browserslist": [
     ">0.2%",
