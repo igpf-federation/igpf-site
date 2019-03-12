@@ -12,7 +12,7 @@ import { ThemeProvider } from 'styled-components';
 
 // --------------------------------------------------
 
-globalStyles()
+globalStyles();
 
 const defaultColors = {
   ...vars.colors,

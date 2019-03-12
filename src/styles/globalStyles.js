@@ -1,6 +1,6 @@
 import * as mixins from 'codogo-utility-functions';
 import * as vars from './vars';
-import { injectGlobal, } from "styled-components";
+import { injectGlobal } from 'styled-components';
 
 // todo: Import this properly
 //import carouselStyles from 'react-responsive-carousel/lib/styles/carousel.min.css';
