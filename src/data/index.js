@@ -17,7 +17,7 @@ const makeMapUsingSlugs = list =>
       ...acc,
       [item.slug]: item,
     }),
-    {}
+    {},
   );
 
 const _siteSettings = rawdata.items
@@ -61,7 +61,7 @@ const lists = R.map(contentType => {
       const slug = slugify(item.fields.title);
       const parent = (
         sectionsList.find(section =>
-          section[contentType + 's'].includes(slug)
+          section[contentType + 's'].includes(slug),
         ) || {}
       ).slug;
 

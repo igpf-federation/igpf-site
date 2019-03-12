@@ -121,7 +121,7 @@ export default injectGlobal`
 	p, h1, h2, h3, h4 {
 		${mixins.bpEach(
       'margin',
-      mixins.objectMap(vars.font.size, (key, val) => `0 0 ${val} 0`)
+      mixins.objectMap(vars.font.size, (key, val) => `0 0 ${val} 0`),
     )};
 	}
 
