@@ -10,7 +10,7 @@ export class Fader extends React.Component {
     super(props);
     this.ref = this.ref.bind(this);
     ['fadeIn', 'fadeOut', 'slideDown', 'slideUp'].map(
-      name => (this[name] = this[name].bind(this))
+      name => (this[name] = this[name].bind(this)),
     );
   }
 
@@ -24,7 +24,7 @@ export class Fader extends React.Component {
         duration: this.props.fadeDuration,
         complete: cb,
         mobileHA: false,
-      }
+      },
     );
   }
 
@@ -38,7 +38,7 @@ export class Fader extends React.Component {
         duration: this.props.fadeDuration,
         complete: cb,
         mobileHA: false,
-      }
+      },
     );
   }
 
@@ -51,7 +51,7 @@ export class Fader extends React.Component {
       {
         duration: this.props.fadeDuration,
         complete: cb,
-      }
+      },
     );
   }
 
@@ -64,7 +64,7 @@ export class Fader extends React.Component {
       {
         duration: this.props.fadeDuration,
         complete: cb,
-      }
+      },
     );
   }
 
