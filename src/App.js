@@ -47,7 +47,7 @@ const App = () => (
 
             <link
               rel="canonical"
-              href="http://www.islingtongpfederation.org/"
+              href="https://www.islingtongpfederation.org/"
             />
           </Helmet>
 
