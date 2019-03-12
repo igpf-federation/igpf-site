@@ -6,7 +6,7 @@ export const objMap = (obj, cb) =>
       ...acc,
       [key]: cb(key, obj[key]),
     }),
-    {}
+    {},
   );
 
 export const printObj = obj => JSON.stringify(obj, null, '  ');
@@ -24,7 +24,7 @@ export const path = pathStr =>
     pathStr.split('.').map(key => {
       const num = parseInt(key, 10);
       return isNaN(num) ? key : num;
-    })
+    }),
   );
 
 export const randomInt = x => Math.floor(Math.random() * x) % x;

@@ -24,7 +24,7 @@ const routes = routesConfig.map(
     return (
       <Route key={`${path}-${i}`} path={path} exact={exact} render={render} />
     );
-  }
+  },
 );
 
 export default () => (
