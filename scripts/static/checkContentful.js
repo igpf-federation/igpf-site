@@ -15,7 +15,7 @@ const write = data => {
 
   jsonfile.writeFile(shapedFile, shapeData(data), { spaces: 2 }, function(
     err,
-    obj
+    obj,
   ) {
     if (err) {
       console.log('Error writing shaped data: ', err);

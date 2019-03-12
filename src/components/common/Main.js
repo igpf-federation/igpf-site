@@ -11,7 +11,7 @@ import React from 'react';
 
 const minHeights = objMap(
   vars.dim.nav.height,
-  (k, val) => `calc(100vh - ${val})`
+  (k, val) => `calc(100vh - ${val})`,
 );
 
 export default styled.div`

@@ -120,7 +120,7 @@ const enhanceSearchBar = compose(
   withProps(({ searchText }) => ({
     value: searchText,
     placeholder: 'Search',
-  }))
+  })),
 );
 
 const SearchBar = enhanceSearchBar(_SearchBar);
