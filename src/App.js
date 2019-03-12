@@ -5,16 +5,14 @@ import Helmet from 'react-helmet';
 import Main from './components/common/Main';
 import Nav from './components/common/Nav';
 import React from 'react';
+import routesConfig from './routesConfig';
 import ScrollToTop from './components/common/ScrollToTop';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import routesConfig from './routesConfig';
-
-import { injectGlobal } from 'styled-components';
 
 // --------------------------------------------------
 
-injectGlobal`${globalStyles}`;
+globalStyles()
 
 const defaultColors = {
   ...vars.colors,
