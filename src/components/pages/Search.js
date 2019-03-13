@@ -34,11 +34,7 @@ const findMatches = query => {
   return matches;
 };
 
-const Search = ({
-  match: {
-    params: { query },
-  },
-}) => (
+const Search = ({ match: { params: { query } } }) => (
   <Container>
     <TextCell>
       <h1>{`Search results for "${query}":`}</h1>
