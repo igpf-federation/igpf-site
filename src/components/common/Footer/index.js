@@ -56,8 +56,7 @@ const FooterLinks = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0.5em;
-  ${mixins.bp.sm.min`flex: 1;`}
-  ${mixins.xs`flex-grow: 1;`}
+  ${mixins.bp.sm.min`flex: 1;`} ${mixins.xs`flex-grow: 1;`};
 `;
 
 const FooterLogoWrapper = styled.div`
@@ -75,7 +74,7 @@ const FooterLogo = styled.img`
 // ---------------------------------
 
 const SearchWrapper = styled.div`
-  ${mixins.bp.sm.min`flex: 1;`}
+  ${mixins.bp.sm.min`flex: 1;`};
 `;
 
 const SearchIcon = Icon;
