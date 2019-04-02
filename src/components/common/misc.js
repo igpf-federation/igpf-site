@@ -178,7 +178,7 @@ export const FunkyButton = styled.div`
 			border-bottom: 0;
 		}
 	`};
-  
+
   ${mixins.bp.md.min`
 		padding: 0 ${mixins.num(vars.dim.nav.margin.other) * 0.5}px;
 		display: inline-block;
