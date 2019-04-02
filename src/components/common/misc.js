@@ -52,9 +52,9 @@ export const Bg = styled.div`
 
 export const Para = props => (
   <div>
-    {props.children
-      .split('\n')
-      .map((p, i) => <p key={`${p.slice(0, 5)}/${i}`}>{p}</p>)}
+    {props.children.split('\n').map((p, i) => (
+      <p key={`${p.slice(0, 5)}/${i}`}>{p}</p>
+    ))}
   </div>
 );
 
@@ -178,7 +178,7 @@ export const FunkyButton = styled.div`
 			border-bottom: 0;
 		}
 	`};
-  
+
   ${mixins.bp.md.min`
 		padding: 0 ${mixins.num(vars.dim.nav.margin.other) * 0.5}px;
 		display: inline-block;

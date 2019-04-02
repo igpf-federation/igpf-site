@@ -78,9 +78,12 @@ const PersonPicture = styled.div`
 const Generic = props => {
   const { subsection, service, job, slug, parent } = props;
 
-  const { title, html, image: { url: imageUrl }, people } = allSectionsMap[
-    slug
-  ];
+  const {
+    title,
+    html,
+    image: { url: imageUrl },
+    people,
+  } = allSectionsMap[slug];
 
   const sectionSlug = subsection || service || job ? parent : slug;
 
