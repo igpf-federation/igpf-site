@@ -20,7 +20,7 @@ const Links = styled.div`
   flex-direction: row;
   justify-content: center;
 
-  ${mixins.xs`flex-direction: column;`};
+  ${mixins.xs`flex-direction: column;`}
 `;
 
 const Link = styled(NavLink)`
