@@ -34,7 +34,7 @@
     "contentful": "^6.1.1",
     "dotenv": "^5.0.1",
     "pre-commit": "^1.2.2",
-    "prettier": "^1.16.4",
+    "prettier": "^1.17.0",
     "process-promises": "^1.0.0",
     "prop-types": "^15.7.2",
     "react-snapshot": "^1.2.0",
