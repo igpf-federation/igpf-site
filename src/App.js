@@ -38,7 +38,7 @@ export default () => (
 
 						<title>Islington GP Federation</title>
 						
-						<meta name="google-site-verification" content="6r6YAzSh8Y4dFXQzkSyNbAqMu0Z2JUP29IpOP9rXfPk" />
+						<meta name = "google-site-verification" content = "6r6YAzSh8Y4dFXQzkSyNbAqMu0Z2JUP29IpOP9rXfPk" />
 
 						<link
 							rel = "canonical"
