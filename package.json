@@ -5,6 +5,7 @@
   "eslintConfig": {
     "extends": "prettier"
   },
+  "homepage": "https://www.islingtongpfederation.org/",
   "author": "Max Clayton Clowes <maxcc@me.com>",
   "dependencies": {
     "codogo-nav": "^2.4.1",
@@ -44,7 +45,8 @@
     "webpack-cli": "^3.3.1"
   },
   "pre-commit": [
-    "format"
+    "format",
+    "data"
   ],
   "scripts": {
     "start": "mcclowes-scripts start",
