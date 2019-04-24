@@ -1,18 +1,16 @@
 import * as vars from './styles/vars';
 import Footer from './components/common/Footer';
-import globalStyles from './styles/globalStyles';
 import Helmet from 'react-helmet';
 import Main from './components/common/Main';
 import Nav from './components/common/Nav';
 import React from 'react';
-import routesConfig from './routesConfig';
 import ScrollToTop from './components/common/ScrollToTop';
+import GlobalStyles from './styles/GlobalStyles';
+import routesConfig from './routesConfig';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 // --------------------------------------------------
-
-globalStyles();
 
 const defaultColors = {
   ...vars.colors,
@@ -50,6 +48,8 @@ const App = () => (
           </Helmet>
 
           <Nav key="Nav" />
+
+          <GlobalStyles />
 
           <Main key="Main">
             <Switch>{routes}</Switch>
