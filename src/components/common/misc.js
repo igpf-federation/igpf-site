@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import R from 'ramda';
+import * as R from 'ramda';
 import { Link } from 'react-router-dom';
 import MQ from 'react-responsive';
 

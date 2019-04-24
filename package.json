@@ -6,7 +6,6 @@
     "extends": "prettier"
   },
   "author": "Max Clayton Clowes <maxcc@me.com>",
-  "main": "build/index.html",
   "dependencies": {
     "codogo-nav": "^2.4.1",
     "codogo-utility-functions": "^1.3.0",
