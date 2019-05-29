@@ -115,11 +115,13 @@ const Generic = props => {
     slug: serviceSlug,
   }));
 
-  const jobLinks = jobSlugs.map(jobSlug => ({
-    to: `/jobs/${jobSlug}`,
-    title: jobsMap[jobSlug].title,
-    slug: jobSlug,
-  }));
+  const jobLinks =
+    jobSlugs &&
+    jobSlugs.map(jobSlug => ({
+      to: `/jobs/${jobSlug}`,
+      title: jobsMap[jobSlug] && jobsMap[jobSlug].title,
+      slug: jobSlug,
+    }));
 
   return (
     <GenericContainer>
