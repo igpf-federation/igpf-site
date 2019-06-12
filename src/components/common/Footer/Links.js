@@ -20,7 +20,11 @@ const Links = styled.div`
   flex-direction: row;
   justify-content: center;
 
+<<<<<<< HEAD
   ${mixins.xs`flex-direction: column;`};
+=======
+  ${mixins.xs`flex-direction: column;`}
+>>>>>>> a474f2577ba2abfa6eec1deafe3d2d40ba31f253
 `;
 
 const Link = styled(NavLink)`

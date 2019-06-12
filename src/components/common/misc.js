@@ -178,7 +178,10 @@ export const FunkyButton = styled.div`
 			border-bottom: 0;
 		}
 	`};
+<<<<<<< HEAD
 
+=======
+>>>>>>> a474f2577ba2abfa6eec1deafe3d2d40ba31f253
   ${mixins.bp.md.min`
 		padding: 0 ${mixins.num(vars.dim.nav.margin.other) * 0.5}px;
 		display: inline-block;

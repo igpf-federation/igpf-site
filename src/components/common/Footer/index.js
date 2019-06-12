@@ -56,7 +56,12 @@ const FooterLinks = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0.5em;
+<<<<<<< HEAD
   ${mixins.bp.sm.min`flex: 1;`} ${mixins.xs`flex-grow: 1;`};
+=======
+  ${mixins.bp.sm.min`flex: 1;`}
+  ${mixins.xs`flex-grow: 1;`}
+>>>>>>> a474f2577ba2abfa6eec1deafe3d2d40ba31f253
 `;
 
 const FooterLogoWrapper = styled.div`
@@ -74,7 +79,11 @@ const FooterLogo = styled.img`
 // ---------------------------------
 
 const SearchWrapper = styled.div`
+<<<<<<< HEAD
   ${mixins.bp.sm.min`flex: 1;`};
+=======
+  ${mixins.bp.sm.min`flex: 1;`}
+>>>>>>> a474f2577ba2abfa6eec1deafe3d2d40ba31f253
 `;
 
 const SearchIcon = Icon;
