@@ -41,7 +41,7 @@
     "eslint-config-prettier": "^4.1.0",
     "mcclowes-scripts": "^0.11.1",
     "pre-commit": "^1.2.2",
-    "prettier": "^1.16.4",
+    "prettier": "^2.0.5",
     "process-promises": "^1.0.0",
     "prop-types": "^15.7.2",
     "react-snapshot": "^1.2.0",
