@@ -38,7 +38,7 @@
     "contentful": "^7.5.0",
     "dotenv": "^7.0.0",
     "eslint": "^4.19.1",
-    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-prettier": "^6.11.0",
     "mcclowes-scripts": "^0.11.1",
     "pre-commit": "^1.2.2",
     "prettier": "^1.16.4",
