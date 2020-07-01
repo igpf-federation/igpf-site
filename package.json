@@ -46,7 +46,7 @@
     "prop-types": "^15.7.2",
     "react-snapshot": "^1.2.0",
     "sitemap-static": "^0.4.4",
-    "webpack-cli": "^3.3.1"
+    "webpack-cli": "^3.3.12"
   },
   "pre-commit": [
     "format",
