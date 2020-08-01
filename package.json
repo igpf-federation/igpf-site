@@ -35,7 +35,7 @@
     "velocity-animate": "^1.5.2"
   },
   "devDependencies": {
-    "contentful": "^7.5.0",
+    "contentful": "^7.14.6",
     "dotenv": "^7.0.0",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^4.1.0",
